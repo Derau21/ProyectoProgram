@@ -9,7 +9,7 @@ public class Persona {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
-		this.dni = dni;
+		this.dni   = dni;
 	}
 
 
