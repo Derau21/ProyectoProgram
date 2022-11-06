@@ -1,4 +1,4 @@
-package Ventanas;
+package VentanasUsuario;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class CrearUsuario extends JFrame {
+public class DetallesReserva extends JFrame {
 
 	private JPanel contentPane;
 
@@ -17,7 +17,7 @@ public class CrearUsuario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CrearUsuario frame = new CrearUsuario();
+					DetallesReserva frame = new DetallesReserva();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +29,7 @@ public class CrearUsuario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CrearUsuario() {
+	public DetallesReserva() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
