@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import clases.Usuario;
+import ventanaInicial.Login;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -12,28 +16,14 @@ import java.awt.event.ActionEvent;
 public class General extends JFrame {
 
 	private JPanel contentPane;
-	private General padre;
+	private Login padre;
+	private Usuario usuarioIntroducido;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					General frame = new General();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
-	 * Create the frame.
-	 */
-	public General() {
+	public General(Login padre, Usuario usuarioIntroducido) {
+		this.padre = padre;
+		this.usuarioIntroducido = usuarioIntroducido;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 516, 518);
 		contentPane = new JPanel();

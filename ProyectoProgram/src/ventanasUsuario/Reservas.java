@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import clases.Usuario;
+import ventanaInicial.Login;
 import ventanasAdministrador.AñadirPeliculas;
 import ventanasAdministrador.General;
 
@@ -16,9 +18,14 @@ import java.awt.event.ActionEvent;
 public class Reservas extends JFrame {
 
 	private JPanel contentPane;
+	
+	private Login padre;
+	private Usuario usuarioIntroducido;
 
 	
-	public Reservas() {
+	public Reservas(Login padre, Usuario usuarioIntroducido) {
+		this.padre = padre;
+		this.usuarioIntroducido = usuarioIntroducido;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
