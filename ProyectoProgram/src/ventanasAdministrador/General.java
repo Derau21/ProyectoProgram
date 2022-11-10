@@ -1,4 +1,4 @@
-package VentanasUsuario;
+package ventanasAdministrador;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class AsientosDisponibles extends JFrame {
+public class General extends JFrame {
 
 	private JPanel contentPane;
 
@@ -17,7 +17,7 @@ public class AsientosDisponibles extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AsientosDisponibles frame = new AsientosDisponibles();
+					General frame = new General();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +29,7 @@ public class AsientosDisponibles extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AsientosDisponibles() {
+	public General() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

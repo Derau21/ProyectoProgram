@@ -1,4 +1,4 @@
-package VentanasAdministrador;
+package ventanasUsuario;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class EliminarPelicula extends JFrame {
+public class Reservas extends JFrame {
 
 	private JPanel contentPane;
 
@@ -17,7 +17,7 @@ public class EliminarPelicula extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EliminarPelicula frame = new EliminarPelicula();
+					Reservas frame = new Reservas();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +29,7 @@ public class EliminarPelicula extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public EliminarPelicula() {
+	public Reservas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

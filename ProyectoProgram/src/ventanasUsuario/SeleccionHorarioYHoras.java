@@ -1,4 +1,4 @@
-package VentanasUsuario;
+package ventanasUsuario;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class DetallesReserva extends JFrame {
+public class SeleccionHorarioYHoras extends JFrame {
 
 	private JPanel contentPane;
 
@@ -17,7 +17,7 @@ public class DetallesReserva extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DetallesReserva frame = new DetallesReserva();
+					SeleccionHorarioYHoras frame = new SeleccionHorarioYHoras();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +29,7 @@ public class DetallesReserva extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public DetallesReserva() {
+	public SeleccionHorarioYHoras() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

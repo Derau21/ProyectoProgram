@@ -1,4 +1,4 @@
-package Clases;
+package clases;
 
 import java.util.Iterator;
 
@@ -13,7 +13,6 @@ public class Persona {
 		this.nombre = nombre;
 		this.edad = edad;
 		DNI = dNI;
-			
 	}
 
 	public String getNombre() {
