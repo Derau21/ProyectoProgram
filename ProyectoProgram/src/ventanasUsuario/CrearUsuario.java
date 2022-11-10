@@ -1,4 +1,4 @@
-package VentanasAdministrador;
+package ventanasUsuario;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class ModificarHorarios extends JFrame {
+public class CrearUsuario extends JFrame {
 
 	private JPanel contentPane;
 
@@ -17,7 +17,7 @@ public class ModificarHorarios extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ModificarHorarios frame = new ModificarHorarios();
+					CrearUsuario frame = new CrearUsuario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +29,7 @@ public class ModificarHorarios extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ModificarHorarios() {
+	public CrearUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

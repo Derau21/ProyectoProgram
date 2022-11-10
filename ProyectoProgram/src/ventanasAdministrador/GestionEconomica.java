@@ -1,4 +1,4 @@
-package VentanasAdministrador;
+package ventanasAdministrador;
 
 import java.awt.EventQueue;
 

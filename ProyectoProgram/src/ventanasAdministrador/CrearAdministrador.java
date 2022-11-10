@@ -1,4 +1,4 @@
-package VentanasUsuario;
+package ventanasAdministrador;
 
 import java.awt.EventQueue;
 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class NuevaReserva extends JFrame {
+public class CrearAdministrador extends JFrame {
 
 	private JPanel contentPane;
 
@@ -17,7 +17,7 @@ public class NuevaReserva extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					NuevaReserva frame = new NuevaReserva();
+					CrearAdministrador frame = new CrearAdministrador();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -29,7 +29,7 @@ public class NuevaReserva extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public NuevaReserva() {
+	public CrearAdministrador() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
