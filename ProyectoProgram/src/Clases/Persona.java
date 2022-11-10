@@ -5,6 +5,7 @@ public class Persona {
 	public String nombre;
 	public int edad;
 	public String DNI;
+	public String color;
 	
 	public Persona(String nombre, int edad, String dNI) {
 		super();
