@@ -11,6 +11,7 @@ public class Persona {
 		this.nombre = nombre;
 		this.edad = edad;
 		DNI = dNI;
+			
 	}
 
 	public String getNombre() {
