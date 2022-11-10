@@ -1,5 +1,7 @@
 package Clases;
 
+import java.util.Iterator;
+
 public class Persona {
 
 	public String nombre;
@@ -36,6 +38,12 @@ public class Persona {
 	public void setDNI(String dNI) {
 		DNI = dNI;
 	}
+
+	@Override
+	public String toString() {
+		return "Persona [nombre=" + nombre + ", edad=" + edad + ", DNI=" + DNI + "]";
+	}
+	
 	
 	
 }
