@@ -1,6 +1,8 @@
 package clases;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -34,5 +36,29 @@ public class UsuarioTest {
 		usuario1.setNombre("Juan");
 				
 		assertEquals("Juan", usuario1.getNombre());
+	}
+	
+	@Test
+	
+	public void getEdad() {
+		int edad = usuario2.getEdad();
+		if (edad==20) {
+			
+		}else {
+			fail();
+		}
+	}
+	@Test
+	
+	public void SetEdad() {
+		boolean comprobacion = false;
+		usuario1.setEdad(4);
+		int edad = usuario1.getEdad();
+		
+		if (edad==4) {
+			comprobacion=true;
+		}
+		
+		assertTrue(comprobacion);
 	}
 }
