@@ -16,13 +16,12 @@ import java.awt.event.ActionEvent;
 public class General extends JFrame {
 
 	private JPanel contentPane;
-	private Login padre;
-	private Usuario usuarioIntroducido;
+	
 
 
-	public General(Login padre, Usuario usuarioIntroducido) {
-		this.padre = padre;
-		this.usuarioIntroducido = usuarioIntroducido;
+	public General(Usuario usuarioIntroducido) {
+		
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 516, 518);
