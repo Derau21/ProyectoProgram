@@ -10,7 +10,6 @@ public class NuevaReserva extends JFrame {
 
 	private JPanel contentPane;
 	private Reservas padre;
-
 	
 	public NuevaReserva(Reservas padre) {
 		this.padre=padre;
@@ -21,5 +20,4 @@ public class NuevaReserva extends JFrame {
 
 		setContentPane(contentPane);
 	}
-
 }

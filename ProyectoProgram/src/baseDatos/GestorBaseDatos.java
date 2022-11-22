@@ -18,7 +18,7 @@ public class GestorBaseDatos {
 				System.out.println("A new database has been created.");
 			}
 		} catch (SQLException e) {
-			System.out.println("Error");
+			System.out.println(e.getMessage());
 		}
 	}
 
@@ -31,7 +31,7 @@ public class GestorBaseDatos {
 			conn = DriverManager.getConnection(url);
 
 		} catch (Exception e) {
-			System.out.println("Error");
+			System.out.println(e.getMessage());
 		}
 		return conn;
 	}
@@ -41,7 +41,7 @@ public class GestorBaseDatos {
 		try(Connection conn=this.conectar(); Statement stmt= conn.createStatement()) {
 			stmt.execute(sql);
 		} catch (Exception e) {
-			System.out.println("Error");
+			System.out.println(e.getMessage());
 		}
 	}
 	
@@ -54,9 +54,15 @@ public class GestorBaseDatos {
 			pstmt.setInt(4, importe);
 			pstmt.executeUpdate();
 		} catch (Exception e) {
-			System.out.println("Error");
+			System.out.println(e.getMessage());
 		}
 	}	
+	
+//	public void delete() throws DBException {
+//		
+//	}
+	
+	
 	
 	
 

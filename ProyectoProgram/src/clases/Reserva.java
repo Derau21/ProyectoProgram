@@ -43,7 +43,7 @@ public class Reserva {
 
 	int precio = 10;
 
-	public int calcularCosteTotal() {
+	public int calcularCosteTotal() { 
 		int coste = 0;
 		coste = getNumeroEntradas() * precio;
 
