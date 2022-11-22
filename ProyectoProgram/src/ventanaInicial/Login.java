@@ -63,25 +63,25 @@ public class Login extends JFrame {
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre de Usuario");
-		lblNewLabel_1.setBounds(96, 274, 187, 63);
+		lblNewLabel_1.setBounds(96, 230, 187, 63);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Contrase\u00F1a");
-		lblNewLabel_2.setBounds(96, 378, 187, 56);
+		lblNewLabel_2.setBounds(96, 330, 187, 56);
 		getContentPane().add(lblNewLabel_2);
 		
 		textField = new JTextField();
-		textField.setBounds(278, 288, 287, 35);
+		textField.setBounds(278, 244, 287, 35);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(278, 396, 300, 26);
+		passwordField.setBounds(278, 330, 300, 26);
 		getContentPane().add(passwordField);
 		
-		JButton btnNewButton = new JButton("Iniciar Sesi\u00F3n");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+		JButton btnNewButton_1 = new JButton("Iniciar Sesi\u00F3n");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				comprobarLogin(textField.getText(), passwordField.getText());
 				if (loginCorrecto) {
 				  JOptionPane.showMessageDialog(contentPane, "Login correcto");
@@ -102,8 +102,12 @@ public class Login extends JFrame {
 		});
 		
 		
-	}
 	
+		btnNewButton_1.setBounds(227, 425, 226, 56);
+		getContentPane().add(btnNewButton_1);
+	}
+		
+		
 	public void comprobarLogin(String username, String password) {
 		ArrayList<Usuario> usuarios = Utilidades.leerUsuarios();
 

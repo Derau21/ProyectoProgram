@@ -6,23 +6,29 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class GestorBaseDatos {
+	private Connection conn = null;
+	private static Logger logger = null;
 
 	public static void createNewDatabase(String fileName) { // para crear base de datos
 		String url = "jdbc:sqlite:" + fileName;
 		try (Connection conn = DriverManager.getConnection(url)) {
 			if (conn != null) {
 				DatabaseMetaData meta = conn.getMetaData();
-				System.out.println("The driver name is " + meta.getDriverName());
-				System.out.println("A new database has been created.");
+				logger.log(Level.INFO, "The driver name is " + meta.getDriverName());
+				logger.log(Level.INFO, "A new database has been created.");
+				
 			}
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			logger.log(Level.WARNING, "No se pudo crear la base de datos", e);
 		}
 	}
 
-	private Connection conn;
 
 	private Connection conectar() { 
 		Connection conn = null;
@@ -57,6 +63,26 @@ public class GestorBaseDatos {
 			System.out.println(e.getMessage());
 		}
 	}	
+	
+	public void setLogger( Logger logger ) {
+		this.logger = logger;
+		}
+		
+		private void log(Level level, String msg, Throwable excepcion) {
+			if (logger==null) {  // Logger por defecto local:
+				logger = Logger.getLogger( "BD-Local" );  // Nombre del logger
+				logger.setLevel(Level.ALL);  // Loguea todos los niveles
+				try {
+					logger.addHandler(new FileHandler("bd.log.xml", true));  // Y saca el log a fichero xml
+				} catch (Exception e) {
+					logger.log(Level.SEVERE, "No se pudo crear fichero de log", e);
+				}
+			}
+			if (excepcion==null)
+				logger.log(level, msg);
+			else
+				logger.log(level, msg, excepcion);
+		}
 	
 //	public void delete() throws DBException {
 //		
