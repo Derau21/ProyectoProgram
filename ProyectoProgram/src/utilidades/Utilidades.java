@@ -57,40 +57,5 @@ public class Utilidades {
 		}
 		return users;
 	}
-	public static void escribirFihcero(ArrayList<Usuario>users){
-		File aFile = new File("usuarios.txt");
-		
-		try{
-			FileWriter fw = new FileWriter(aFile);
-			BufferedWriter bw = new BufferedWriter(fw);
-			
-			for (Usuario usuario : users) {
-				String texto = ""; //creas la variable texto para rellenar en funcion de si es admin o cliente
-				
-				
-				String nombre = usuario.getNombre();
-				int edad = usuario.getEdad();
-				String dNI = usuario.getDNI();
-				String  username = usuario.getUsername();
-				String contrasenya = usuario.getContrasenya();
 
-				texto+= nombre + ";" + edad + ";" + dNI + ";" + username + ";" +contrasenya;
-				
-				if(usuario instanceof Administrador){
-					int antiguedad = ((Administrador) usuario).getAntiguedad();//casteo por que es un metoo del admin
-					texto+= ";" + antiguedad;
-				}
-				bw.write(texto + "\n");
-				
-			}
-			bw.flush();
-			bw.close();
-			fw.close();
-			
-		} catch(IOException e){
-			e.printStackTrace();
-			
-		}
-		
-	}
 }
