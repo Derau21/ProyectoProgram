@@ -59,7 +59,7 @@ public class Login extends JFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setBounds(316, 97, 209, 56);
+		lblNewLabel.setBounds(225, 97, 300, 121);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre de Usuario");
