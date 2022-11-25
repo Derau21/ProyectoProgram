@@ -1,5 +1,6 @@
 package ventanasCliente;
 import utilidades.Utilidades;
+import ventanaInicial.Login;
 
 import java.awt.EventQueue;
 
@@ -26,6 +27,7 @@ public class CrearCliente extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private Utilidades util;
+	
 
 	/**
 	 * Launch the application.
@@ -47,6 +49,7 @@ public class CrearCliente extends JFrame {
 	 * Create the frame.
 	 */
 	public CrearCliente() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 626, 449);
 		contentPane = new JPanel();

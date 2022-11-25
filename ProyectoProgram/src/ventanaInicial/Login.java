@@ -11,7 +11,9 @@ import clases.Administrador;
 import clases.Cliente;
 import clases.Usuario;
 import utilidades.Utilidades;
+import ventanasAdministrador.EliminarPelicula;
 import ventanasAdministrador.General;
+import ventanasCliente.CrearCliente;
 import ventanasCliente.Reservas;
 
 import javax.swing.JTextField;
@@ -26,6 +28,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import java.awt.Color;
+import javax.swing.JTextArea;
 
 public class Login extends JFrame {
 
@@ -103,8 +106,12 @@ public class Login extends JFrame {
 		
 		
 	
-		btnNewButton_1.setBounds(227, 425, 226, 56);
+		btnNewButton_1.setBounds(348, 416, 177, 39);
 		getContentPane().add(btnNewButton_1);
+		
+		JTextArea textArea = new JTextArea();
+		textArea.setBounds(215, 423, 5, 22);
+		getContentPane().add(textArea);
 	}
 		
 		
