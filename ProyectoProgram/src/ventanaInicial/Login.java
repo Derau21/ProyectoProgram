@@ -109,7 +109,7 @@ public class Login extends JFrame {
 		btnNewButton_1.setBounds(272, 416, 177, 39);
 		getContentPane().add(btnNewButton_1);
 		
-<<<<<<< HEAD
+
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(215, 423, 5, 22);
 		getContentPane().add(textArea);
@@ -120,11 +120,6 @@ public class Login extends JFrame {
 			}
 		});
 		btnNewButton.setBounds(502, 409, 177, 46);
-=======
-		JButton btnNewButton = new JButton("Crear Cuenta");
-		btnNewButton.setBounds(170, 424, 134, 46);
->>>>>>> branch 'master' of https://github.com/Derau21/ProyectoProgram.git
-		getContentPane().add(btnNewButton);
 	}
 		
 		
