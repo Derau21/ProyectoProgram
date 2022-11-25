@@ -7,6 +7,9 @@ public class Cliente extends Usuario{
 		
 	}
 
+	public Cliente(String username, String contrasenya) {
+		super(username, contrasenya);
+	}
 
 
 }

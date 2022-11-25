@@ -14,13 +14,14 @@ public class Usuario {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
-		DNI = dNI;
+		this.DNI = dNI;
 		this.username = username;
 		this.contrasenya = contrasenya;
 	}
 
 	public Usuario(String username, String contrasenya) {
-		// TODO Auto-generated constructor stub
+		this.username = username;
+		this.contrasenya= contrasenya;
 	}
 
 	public String getNombre() {
