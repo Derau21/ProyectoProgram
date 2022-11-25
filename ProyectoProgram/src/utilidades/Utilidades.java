@@ -57,7 +57,6 @@ public class Utilidades {
 		}
 		return users;
 	}
-	
 	public static void escribirFihcero(ArrayList<Usuario>users){
 		File aFile = new File("usuarios.txt");
 		
