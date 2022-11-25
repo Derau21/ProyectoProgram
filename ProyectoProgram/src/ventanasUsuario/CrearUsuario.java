@@ -1,4 +1,6 @@
 package ventanasUsuario;
+import utilidades.Utilidades;
+
 
 import java.awt.EventQueue;
 
@@ -10,12 +12,14 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class CrearUsuario extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
+	private JPasswordField passwordField;
+	private Utilidades util;
 
 	/**
 	 * Launch the application.
@@ -62,18 +66,24 @@ public class CrearUsuario extends JFrame {
 		textField.setBounds(205, 121, 146, 26);
 		contentPane.add(textField);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(205, 186, 146, 26);
-		contentPane.add(textField_1);
-		
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nombreUsuario = textField.getText();
+				String contrasenya = new String (passwordField.getPassword());
+				
+				
+				
+				
+				
 				
 			}
 		});
 		btnConfirmar.setBounds(216, 264, 115, 29);
 		contentPane.add(btnConfirmar);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(212, 192, 139, 20);
+		contentPane.add(passwordField);
 	}
 }
