@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
 
 public class NuevaReserva extends JFrame {
 
@@ -19,5 +20,10 @@ public class NuevaReserva extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnNewButton = new JButton("reserva");
+		btnNewButton.setBounds(135, 113, 89, 23);
+		contentPane.add(btnNewButton);
 	}
 }
