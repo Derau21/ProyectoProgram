@@ -99,7 +99,7 @@ public class CrearAdministrador extends JFrame {
 
 					//padre.cargarModelo();//como ha habido un cambio cargas el Jlist otra vez para cargarlo de nuevo
 
-					//padre.setVisible(true);
+					padre.setVisible(true);
 					CrearAdministrador.this.setVisible(false); //vueleves a la pestaña anterior
 					CrearAdministrador.this.dispose();
 
