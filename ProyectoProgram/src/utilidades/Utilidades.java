@@ -89,6 +89,7 @@ public class Utilidades {
 			fw.close();
 		} catch(IOException e){
 			e.printStackTrace();
+			
 		}
 		
 	}
