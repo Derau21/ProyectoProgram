@@ -1,6 +1,4 @@
-package ventanasUsuario;
-import utilidades.Utilidades;
-
+package ventanasCliente;
 
 import java.awt.EventQueue;
 
@@ -12,14 +10,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JPasswordField;
 
-public class CrearUsuario extends JFrame {
+public class CrearCliente extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JPasswordField passwordField;
-	private Utilidades util;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -28,7 +24,7 @@ public class CrearUsuario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CrearUsuario frame = new CrearUsuario();
+					CrearCliente frame = new CrearCliente();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +36,7 @@ public class CrearUsuario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CrearUsuario() {
+	public CrearCliente() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 626, 449);
 		contentPane = new JPanel();
@@ -66,24 +62,18 @@ public class CrearUsuario extends JFrame {
 		textField.setBounds(205, 121, 146, 26);
 		contentPane.add(textField);
 		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(205, 186, 146, 26);
+		contentPane.add(textField_1);
+		
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nombreUsuario = textField.getText();
-				String contrasenya = new String (passwordField.getPassword());
-				
-				
-				
-				
-				
 				
 			}
 		});
 		btnConfirmar.setBounds(216, 264, 115, 29);
 		contentPane.add(btnConfirmar);
-		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(212, 192, 139, 20);
-		contentPane.add(passwordField);
 	}
 }

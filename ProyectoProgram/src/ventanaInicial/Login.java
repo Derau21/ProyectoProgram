@@ -12,7 +12,7 @@ import clases.Cliente;
 import clases.Usuario;
 import utilidades.Utilidades;
 import ventanasAdministrador.General;
-import ventanasUsuario.Reservas;
+import ventanasCliente.Reservas;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
