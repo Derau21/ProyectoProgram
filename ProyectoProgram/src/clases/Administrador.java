@@ -1,32 +1,35 @@
 package clases;
 
 public class Administrador extends Usuario{
-	private String antiguedad;
+	private String dNI;
 
-	public Administrador(String nombre, int edad, String dNI, String username, String contrasenya, String antiguedad) {
-		super(nombre, edad, dNI, username, contrasenya);
-		this.antiguedad = antiguedad;
+	public Administrador(String nombre, int edad, String username, String contrasenya, String antiguedad) {
+		super(nombre, edad, username, contrasenya);
+		this.dNI = antiguedad;
 	}
 	
 	
 
 	public Administrador(String username, String contrasenya, String antiguedad) {
 		super(username, contrasenya);
-		this.antiguedad = antiguedad;
+		this.dNI = dNI;
 	}
 
 
 
-	public String getAntiguedad() {
-		return antiguedad;
+	public String getdNI() {
+		return dNI;
 	}
 
 
 
-	public void setAntiguedad(String antiguedad) {
-		this.antiguedad = antiguedad;
+	public void setdNI(String dNI) {
+		this.dNI = dNI;
 	}
 
+
+
+	
 
 
 	

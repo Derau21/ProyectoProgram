@@ -114,12 +114,21 @@ public class Login extends JFrame {
 		textArea.setBounds(215, 423, 5, 22);
 		getContentPane().add(textArea);
 		
-		JButton btnNewButton = new JButton("Crear Cuenta");
+		JButton btnNewButton = new JButton("Crear Cliente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnNewButton.setBounds(502, 409, 177, 46);
+		getContentPane().add(btnNewButton);
+		
+		JButton btnCrearAdministrador = new JButton("Crear Administrador");
+		btnCrearAdministrador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnCrearAdministrador.setBounds(502, 466, 177, 46);
+		getContentPane().add(btnCrearAdministrador);
 	}
 		
 		

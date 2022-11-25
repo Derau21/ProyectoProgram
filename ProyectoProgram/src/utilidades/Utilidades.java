@@ -27,25 +27,23 @@ public class Utilidades {
 
 			while(linea!= null){
 				String[] lineaSeparada = linea.split(";");
-				if(lineaSeparada.length == 5){
+				if(lineaSeparada.length == 4){
 					String nombre = lineaSeparada[0];
 					int edad = Integer.parseInt(lineaSeparada[1]);
-					String dni = lineaSeparada[2];
-					String username = lineaSeparada[3];
-					String contrasenya = lineaSeparada[4];
+					String username = lineaSeparada[2];
+					String contrasenya = lineaSeparada[3];
 
 
-					users.add(new Cliente(nombre, edad, dni, username, contrasenya));
+					users.add(new Cliente(nombre, edad, username, contrasenya));
 
-				}else if(lineaSeparada.length == 6){
+				}else if(lineaSeparada.length == 5){
 					String nombre = lineaSeparada[0];
 					int edad = Integer.parseInt(lineaSeparada[1]);
-					String dni = lineaSeparada[2];
-					String username = lineaSeparada[3];
-					String contrasenya = lineaSeparada[4];
-					int antiguedad = Integer.parseInt(lineaSeparada[5]);
+					String username = lineaSeparada[2];
+					String contrasenya = lineaSeparada[3];
+					String dni = lineaSeparada[4];
 
-					users.add(new Administrador(nombre, edad, dni, username, contrasenya,antiguedad));
+					users.add(new Administrador(nombre, edad, username, contrasenya, dni));
 				}
 				linea = br.readLine();
 			}
@@ -68,16 +66,14 @@ public class Utilidades {
 			for (Usuario usuario : users) {
 				String texto = ""; //creas la variable texto para rellenar en funcion de si es admin o cliente
 				
-				
-				
 				String  username = usuario.getUsername();
 				String contrasenya = usuario.getContrasenya();
 
 				texto+=  username + ";" +contrasenya;
 				
 				if(usuario instanceof Administrador){
-					int antiguedad = ((Administrador) usuario).getAntiguedad();//casteo por que es un metoo del admin
-					texto+= ";" + antiguedad;
+					String dNI = ((Administrador) usuario).getdNI();//casteo por que es un metoo del admin
+					texto+= ";" + dNI;
 				}
 				bw.write(texto + "\n");
 				

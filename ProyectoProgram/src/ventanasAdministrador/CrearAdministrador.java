@@ -72,7 +72,7 @@ public class CrearAdministrador extends JFrame {
 		lblNewLabel_2.setBounds(111, 212, 78, 38);
 		contentPane.add(lblNewLabel_2);
 
-		JLabel lblNewLabel_3 = new JLabel("Antiguedad");
+		JLabel lblNewLabel_3 = new JLabel("DNI");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_3.setBounds(111, 259, 110, 38);
 		contentPane.add(lblNewLabel_3);
@@ -96,21 +96,21 @@ public class CrearAdministrador extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String usuarioIntroducido = textField.getText();
 				String contraseñaIntroducida = passwordField.getText();
-				String antiguedadIntroducida = textField_1.getText();
+				String dNIIntroducida = textField_1.getText();
 
-				if(!usuarioIntroducido.equals("") && !contraseñaIntroducida.equals("") && !antiguedadIntroducida.equals("")){//comprobar que se han rellenado usuario y contraseña
+				if(!usuarioIntroducido.equals("") && !contraseñaIntroducida.equals("") && !dNIIntroducida.equals("")){//comprobar que se han rellenado usuario y contraseña
 					ArrayList<Usuario>usuarios = Utilidades.leerUsuarios(); //para rellenar el array con los usuarios que ya tienes
 					//usuarios.remove(clienteSeleccioando); //se borra el cliente
 
-					usuarios.add(new Administrador(usuarioIntroducido,contraseñaIntroducida, antiguedadIntroducida )); //se crea el admin
+					usuarios.add(new Administrador(usuarioIntroducido,contraseñaIntroducida, dNIIntroducida )); //se crea el admin
 
 					Utilidades.escribirFihcero(usuarios);
 
 					//padre.cargarModelo();//como ha habido un cambio cargas el Jlist otra vez para cargarlo de nuevo
 
 					//padre.setVisible(true);
-					//CrearAdministrador.this.setVisible(false); //vueleves a la pestaña anterior
-					//CrearAdministrador.this.dispose();
+					CrearAdministrador.this.setVisible(false); //vueleves a la pestaña anterior
+					CrearAdministrador.this.dispose();
 
 				}else{
 					JOptionPane.showMessageDialog(CrearAdministrador.this, "Por favor rellene todos los campos");

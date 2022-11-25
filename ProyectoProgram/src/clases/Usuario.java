@@ -6,15 +6,13 @@ public class Usuario {
 
 	public String nombre;
 	public int edad;
-	public String DNI;
 	public String username;
 	public String contrasenya;
 	
-	public Usuario(String nombre, int edad, String dNI, String username, String contrasenya) {
+	public Usuario(String nombre, int edad, String username, String contrasenya) {
 		super();
 		this.nombre = nombre;
 		this.edad = edad;
-		this.DNI = dNI;
 		this.username = username;
 		this.contrasenya = contrasenya;
 	}
@@ -40,14 +38,6 @@ public class Usuario {
 		this.edad = edad;
 	}
 
-	public String getDNI() {
-		return DNI;
-	}
-
-	public void setDNI(String dNI) {
-		DNI = dNI;
-	}
-
 	public String getUsername() {
 		return username;
 	}
@@ -66,7 +56,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", edad=" + edad + ", DNI=" + DNI + ", username=" + username
+		return "Usuario [nombre=" + nombre + ", edad=" + edad + ", username=" + username
 				+ ", contrasenya=" + contrasenya + "]";
 	}
 	

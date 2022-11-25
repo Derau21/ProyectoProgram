@@ -20,9 +20,9 @@ public class UsuarioTest {
 	
 	public void setUp() throws Exception{
 	
-		usuario1= new Usuario ("Pablo",19, "74561435L", "Derau", "Hola2");		
-		usuario2= new Usuario ("Alex",20, "78679109P", "Calde", "Bocata3");	
-		usuario2= new Usuario ("Bastiaan",20, "76541090M", "Basti", "Deusto1");
+		usuario1= new Usuario ("Pablo",19, "Derau", "Hola2");		
+		usuario2= new Usuario ("Alex",20, "Calde", "Bocata3");	
+		usuario2= new Usuario ("Bastiaan",20, "Basti", "Deusto1");
 	}
 	
 	@Test
