@@ -109,9 +109,9 @@ public class Login extends JFrame {
 		btnNewButton_1.setBounds(348, 416, 177, 39);
 		getContentPane().add(btnNewButton_1);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(215, 423, 5, 22);
-		getContentPane().add(textArea);
+		JButton btnNewButton = new JButton("Crear Cuenta");
+		btnNewButton.setBounds(170, 424, 134, 46);
+		getContentPane().add(btnNewButton);
 	}
 		
 		
