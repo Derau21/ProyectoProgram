@@ -11,6 +11,7 @@ import clases.Administrador;
 import clases.Cliente;
 import clases.Usuario;
 import utilidades.Utilidades;
+import ventanasAdministrador.CrearAdministrador;
 import ventanasAdministrador.EliminarPelicula;
 import ventanasAdministrador.General;
 import ventanasCliente.CrearCliente;
@@ -43,6 +44,7 @@ public class Login extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -59,6 +61,7 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		
 		getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Login");
@@ -117,6 +120,9 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Crear Cliente");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				CrearCliente Cc = new CrearCliente(Login.this);
+				Cc.setVisible(true);
+				Login.this.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(502, 409, 177, 46);
@@ -125,6 +131,9 @@ public class Login extends JFrame {
 		JButton btnCrearAdministrador = new JButton("Crear Administrador");
 		btnCrearAdministrador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				CrearAdministrador Ca = new CrearAdministrador(Login.this);
+				Ca.setVisible(true);
+				Login.this.setVisible(false);
 			}
 		});
 		btnCrearAdministrador.setBounds(502, 466, 177, 46);
@@ -134,7 +143,10 @@ public class Login extends JFrame {
 		
 	public void comprobarLogin(String username, String password) {
 		ArrayList<Usuario> usuarios = Utilidades.leerUsuarios();
-
+		for (Usuario usuario : usuarios) {
+			System.out.println(usuario);
+		}
+		
 		loginCorrecto = false;
 		for (Usuario usuario : usuarios) {
 			if ((usuario.getUsername().equals(username)) && (usuario.getContrasenya().equals(password))){

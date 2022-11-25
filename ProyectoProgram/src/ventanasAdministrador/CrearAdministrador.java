@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import clases.Administrador;
 import clases.Usuario;
 import utilidades.Utilidades;
-
+import ventanaInicial.Login;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -28,27 +28,18 @@ public class CrearAdministrador extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JPasswordField passwordField;
+	private Login padre;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CrearAdministrador frame = new CrearAdministrador();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public CrearAdministrador() {
+	public CrearAdministrador(Login padre) {
+		this.padre=padre;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 827, 442);
 		contentPane = new JPanel();

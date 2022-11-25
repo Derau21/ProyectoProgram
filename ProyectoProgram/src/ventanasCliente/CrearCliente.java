@@ -27,28 +27,19 @@ public class CrearCliente extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private Utilidades util;
+	private Login padre;
 	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					CrearCliente frame = new CrearCliente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public CrearCliente() {
+	public CrearCliente(Login padre) {
+		this.padre=padre;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 626, 449);
