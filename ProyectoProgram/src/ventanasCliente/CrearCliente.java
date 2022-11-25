@@ -1,4 +1,4 @@
-package ventanasUsuario;
+package ventanasCliente;
 
 import java.awt.EventQueue;
 
@@ -11,7 +11,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class CrearUsuario extends JFrame {
+public class CrearCliente extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -24,7 +24,7 @@ public class CrearUsuario extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CrearUsuario frame = new CrearUsuario();
+					CrearCliente frame = new CrearCliente();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -36,7 +36,7 @@ public class CrearUsuario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CrearUsuario() {
+	public CrearCliente() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 626, 449);
 		contentPane = new JPanel();
