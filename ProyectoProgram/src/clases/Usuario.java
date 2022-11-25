@@ -19,6 +19,10 @@ public class Usuario {
 		this.contrasenya = contrasenya;
 	}
 
+	public Usuario(String username, String contrasenya) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getNombre() {
 		return nombre;
 	}

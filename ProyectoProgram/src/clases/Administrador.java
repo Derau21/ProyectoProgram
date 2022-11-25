@@ -7,6 +7,15 @@ public class Administrador extends Usuario{
 		super(nombre, edad, dNI, username, contrasenya);
 		this.antiguedad = antiguedad;
 	}
+	
+	
+
+	public Administrador(String username, String contrasenya, int antiguedad) {
+		super(username, contrasenya);
+		this.antiguedad = antiguedad;
+	}
+
+
 
 	public int getAntiguedad() {
 		return antiguedad;
