@@ -87,6 +87,7 @@ public class Utilidades {
 			bw.flush();
 			bw.close();
 			fw.close();
+			
 		} catch(IOException e){
 			e.printStackTrace();
 			
