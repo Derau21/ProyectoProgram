@@ -9,27 +9,12 @@ import javax.swing.border.EmptyBorder;
 public class DetallesReserva extends JFrame {
 
 	private JPanel contentPane;
+	private VerReserva padre;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					DetallesReserva frame = new DetallesReserva();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public DetallesReserva() {
+	
+	
+	public DetallesReserva(VerReserva padre) {
+		this.padre=padre;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
