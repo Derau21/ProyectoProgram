@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-hola;1
-=======
-2;2;2
->>>>>>> branch 'master' of https://github.com/Derau21/ProyectoProgram.git
