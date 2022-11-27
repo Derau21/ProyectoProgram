@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 public class GestorBaseDatos {
 	private Connection conn = null;
-	private static Logger logger = null;
+	public static  Logger logger = null;
 
 	public static void createNewDatabase(String fileName) { // para crear base de datos
 		String url = "jdbc:sqlite:" + fileName;
@@ -22,7 +22,6 @@ public class GestorBaseDatos {
 				DatabaseMetaData meta = conn.getMetaData();
 				logger.log(Level.INFO, "The driver name is " + meta.getDriverName());
 				logger.log(Level.INFO, "A new database has been created.");
-				
 			}
 		} catch (SQLException e) {
 			logger.log(Level.WARNING, "No se pudo crear la base de datos", e);

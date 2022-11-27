@@ -8,7 +8,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
 
+import baseDatos.GestorBaseDatos;
 import clases.Administrador;
 import clases.Cliente;
 import clases.Usuario;
@@ -48,7 +50,7 @@ public class Utilidades {
 			fr.close();
 
 		}catch(IOException e){ //hay que poner IOException
-			e.printStackTrace();
+			GestorBaseDatos.logger.log(Level.WARNING, "No se han leido bien los usuarios", e);
 		}
 		return users;
 	}
@@ -80,7 +82,7 @@ public class Utilidades {
 			fw.close();
 			
 		} catch(IOException e){
-			e.printStackTrace();
+			GestorBaseDatos.logger.log(Level.WARNING, "No se han escrito bien los usuarios", e);
 			
 		}
 		
