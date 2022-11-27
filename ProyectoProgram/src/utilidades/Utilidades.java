@@ -27,23 +27,20 @@ public class Utilidades {
 
 			while(linea!= null){
 				String[] lineaSeparada = linea.split(";");
-				if(lineaSeparada.length == 4){
-					String nombre = lineaSeparada[0];
-					int edad = Integer.parseInt(lineaSeparada[1]);
-					String username = lineaSeparada[2];
-					String contrasenya = lineaSeparada[3];
+				if(lineaSeparada.length == 2){
+					String username = lineaSeparada[0];
+					String contrasenya = lineaSeparada[1];
 
 
-					users.add(new Cliente(nombre, edad, username, contrasenya));
+					users.add(new Cliente(username, contrasenya));
+					
+				}else if(lineaSeparada.length == 3){
+					String username = lineaSeparada[0];
+					String contrasenya = lineaSeparada[1];
+					String dni = lineaSeparada[2];
 
-				}else if(lineaSeparada.length == 5){
-					String nombre = lineaSeparada[0];
-					int edad = Integer.parseInt(lineaSeparada[1]);
-					String username = lineaSeparada[2];
-					String contrasenya = lineaSeparada[3];
-					String dni = lineaSeparada[4];
-
-					users.add(new Administrador(nombre, edad, username, contrasenya, dni));
+					users.add(new Administrador(username, contrasenya, dni));
+				
 				}
 				linea = br.readLine();
 			}
