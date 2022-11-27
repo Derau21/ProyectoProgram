@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import baseDatos.GestorBaseDatos;
 import clases.Administrador;
 import clases.Cliente;
 import clases.Usuario;
@@ -24,6 +25,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.logging.Level;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
 import javax.swing.JComboBox;
@@ -90,7 +92,7 @@ public class Login extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				comprobarLogin(textField.getText(), passwordField.getText());
 				if (loginCorrecto) {
-				  JOptionPane.showMessageDialog(contentPane, "Login correcto");
+				 JOptionPane.showMessageDialog(contentPane, "Login correcto");
 				  if (usuarioIntroducido instanceof Administrador) { //cuando el usuario sea administrador que vaya a esa ventana
 					General g = new General((Administrador) usuarioIntroducido);
 					g.setVisible(true);
