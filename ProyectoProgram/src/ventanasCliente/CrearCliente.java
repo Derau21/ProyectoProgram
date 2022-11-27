@@ -84,9 +84,12 @@ public class CrearCliente extends JFrame {
 
 					//padre.cargarModelo();//como ha habido un cambio cargas el Jlist otra vez para cargarlo de nuevo
 
+					JOptionPane.showMessageDialog(CrearCliente.this, "Cliente creado");
+					
 					padre.setVisible(true);
 					CrearCliente.this.setVisible(false); //vueleves a la pestaña anterior
 					CrearCliente.this.dispose();
+					
 
 				}else{
 					JOptionPane.showMessageDialog(CrearCliente.this, "Por favor rellene todos los campos");

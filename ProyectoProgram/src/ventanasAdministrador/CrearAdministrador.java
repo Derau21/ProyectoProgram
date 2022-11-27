@@ -10,6 +10,7 @@ import clases.Administrador;
 import clases.Usuario;
 import utilidades.Utilidades;
 import ventanaInicial.Login;
+import ventanasCliente.CrearCliente;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -99,10 +100,12 @@ public class CrearAdministrador extends JFrame {
 
 					//padre.cargarModelo();//como ha habido un cambio cargas el Jlist otra vez para cargarlo de nuevo
 
+					JOptionPane.showMessageDialog(CrearAdministrador.this, "Administrador creado");
+					
 					padre.setVisible(true);
 					CrearAdministrador.this.setVisible(false); //vueleves a la pestaña anterior
 					CrearAdministrador.this.dispose();
-
+					
 				}else{
 					JOptionPane.showMessageDialog(CrearAdministrador.this, "Por favor rellene todos los campos");
 				}

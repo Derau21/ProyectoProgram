@@ -1,7 +1,7 @@
-<<<<<<< HEAD
 a;sss
 a;lex
 alex;eeeee;7234
-=======
 bastiaan7;123
->>>>>>> branch 'master' of https://github.com/Derau21/ProyectoProgram.git
+bastu;eo
+BAstu;s
+añes;ss;ss
