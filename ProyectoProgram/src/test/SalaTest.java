@@ -25,6 +25,7 @@ public void getNumeroSala() {
 public void setNumeroSala() {
 	sala1.setNumeroSala(2);
 	assertEquals(sala1.getNumeroSala(), 2);
+	
 }
 @Test
 public void getNumeroAsientos() {
