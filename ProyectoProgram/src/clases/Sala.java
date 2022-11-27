@@ -2,25 +2,23 @@ package clases;
 
 public class Sala {
 
-	private String nombreSala;
+	private int numeroSala;
 	private int numeroAsientos;
+	
+	
 
-	public Sala() {
+	public Sala(int numeroSala, int numeroAsientos) {
 		super();
-	}
-
-	public Sala(String nombreSala, int numeroAsientos) {
-		super();
-		this.nombreSala = nombreSala;
+		this.numeroSala = numeroSala;
 		this.numeroAsientos = numeroAsientos;
 	}
 
-	public String getNombreSala() {
-		return nombreSala;
+	public int getNumeroSala() {
+		return numeroSala;
 	}
 
-	public void setNombreSala(String nombreSala) {
-		this.nombreSala = nombreSala;
+	public void setNumeroSala(int numeroSala) {
+		this.numeroSala = numeroSala;
 	}
 
 	public int getNumeroAsientos() {
