@@ -12,23 +12,9 @@ import java.util.logging.Logger;
 
 
 public class GestorBaseDatos {
-	private Connection conn = null;
+	private Connection conn;
 	public static  Logger logger = null;
-
-	public static void createNewDatabase(String fileName) { // para crear base de datos
-		String url = "jdbc:sqlite:" + fileName;
-		try (Connection conn = DriverManager.getConnection(url)) {
-			if (conn != null) {
-				DatabaseMetaData meta = conn.getMetaData();
-				logger.log(Level.INFO, "The driver name is " + meta.getDriverName());
-				logger.log(Level.INFO, "A new database has been created.");
-			}
-		} catch (SQLException e) {
-			logger.log(Level.WARNING, "No se pudo crear la base de datos", e);
-		}
-	}
-
-
+	
 	private Connection conectar() { 
 		Connection conn = null;
 		String url = "jdbc:sqlite:BDProyecto.db"; 
@@ -40,6 +26,22 @@ public class GestorBaseDatos {
 		}
 		return conn;
 	}
+
+	public static void createNewDatabase(String fileName) {
+			String url = "jdbc:sqlite:" + fileName;
+			try (Connection conn = DriverManager.getConnection(url)) {
+				if (conn != null) {
+					DatabaseMetaData meta = conn.getMetaData();
+					logger.log(Level.INFO, "The driver name is " + meta.getDriverName());
+					logger.log(Level.INFO, "A new database has been created.");
+				}
+			} catch (SQLException e) {
+				logger.log(Level.WARNING, "No se pudo crear la base de datos", e);
+			}
+		} 
+
+
+	
 	
 	public void createTable () {
 		String sql= "Create table if not exists reservas (nombre text primary key, pelicula text not null, numeroEntradas int not null, importe int not null )";		
@@ -51,7 +53,7 @@ public class GestorBaseDatos {
 	}
 	
 	public void insertar(String nombre, String pelicula, int numeroEntradas, int importe) {
-		String sql="insert into persona (nombre, pelicula, numeroEntradas, importe) values (?, ?, ?, ?)";
+		String sql="insert into reservas(nombre, pelicula, numeroEntradas, importe) values (?, ?, ?, ?)";
 		try (Connection conn=this.conectar(); PreparedStatement pstmt= conn.prepareStatement(sql)){
 			pstmt.setString(1, nombre); 
 			pstmt.setString(2, pelicula);
@@ -61,7 +63,9 @@ public class GestorBaseDatos {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-	}	
+	}
+	
+	
 	
 	public void setLogger( Logger logger ) {
 		this.logger = logger;
@@ -83,12 +87,17 @@ public class GestorBaseDatos {
 				logger.log(level, msg, excepcion);
 		}
 	
-//	public void delete() throws DBException {
-//		
-//	}
+
 		public static void main(String[] args) {
 			GestorBaseDatos gestor= new GestorBaseDatos();
+			gestor.conectar();
 			gestor.createTable();
+			gestor.insertar("Bastiaan", "Forrest Gump", 2, 20);
+			gestor.insertar("Alex", "La vida es Bella", 8, 80);
+			gestor.insertar("Pablo", "Salvando al Soldado Ryan", 3, 30);
+			gestor.insertar("Unai", "Jumanji", 4, 40);
+			gestor.insertar("Ander", "La lista de Schiendler", 5, 50);
+			gestor.insertar("Adrian", "El pianista", 2, 20);
 			
 		}
 	
