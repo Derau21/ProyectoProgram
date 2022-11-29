@@ -6,7 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class SeleccionHorarioYHoras extends JFrame {
+import clases.Reserva;
+
+public class SeleccionHorarioYEntradas extends JFrame {
 
 	private JPanel contentPane;
 
@@ -17,7 +19,7 @@ public class SeleccionHorarioYHoras extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SeleccionHorarioYHoras frame = new SeleccionHorarioYHoras();
+					SeleccionHorarioYEntradas frame = new SeleccionHorarioYEntradas();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -28,8 +30,10 @@ public class SeleccionHorarioYHoras extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @param r 
+	 * @param nuevaReserva 
 	 */
-	public SeleccionHorarioYHoras() {
+	public SeleccionHorarioYEntradas(NuevaReserva nuevaReserva, Reserva r) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
