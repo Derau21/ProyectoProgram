@@ -3,10 +3,8 @@ a;lex
 bastiaan7;123
 bastu;eo
 BAstu;s
-<<<<<<< HEAD
 añes;ss;ss
 basti;7
-=======
 a;a
 a;a;a
->>>>>>> branch 'master' of https://github.com/Derau21/ProyectoProgram.git
+Pablo;Hola
