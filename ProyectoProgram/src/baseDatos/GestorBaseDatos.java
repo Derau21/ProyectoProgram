@@ -86,7 +86,11 @@ public class GestorBaseDatos {
 //	public void delete() throws DBException {
 //		
 //	}
-	
+		public static void main(String[] args) {
+			GestorBaseDatos gestor= new GestorBaseDatos();
+			gestor.createTable();
+			
+		}
 	
 	
 	
