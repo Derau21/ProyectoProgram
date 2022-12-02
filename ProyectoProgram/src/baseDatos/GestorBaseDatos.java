@@ -40,9 +40,6 @@ public class GestorBaseDatos {
 			}
 		} 
 
-
-	
-	
 	public void createTable () {
 		String sql= "Create table if not exists reservas (nombre text primary key, pelicula text not null, numeroEntradas int not null, importe int not null )";		
 		try(Connection conn=this.conectar(); Statement stmt= conn.createStatement()) {
