@@ -88,28 +88,66 @@ public class GestorBaseDatos {
 	}
 
 	public static ArrayList<Pelicula> leerPeliculas() {
-		
-		ArrayList<Pelicula> peliculas= new ArrayList<Pelicula>();
-		
+
+		ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
 
 			try (Statement s = conn.createStatement()) {
 
 				try (ResultSet rs = s.executeQuery("SELECT genero, nombre, duracion FROM PELICULA")) {
-					
-					
-					while(rs.next()) {
-						
-						String genero=rs.getString("genero");
+
+					while (rs.next()) {
+
+						String genero = rs.getString("genero");
 						String nombre = rs.getString("nombre");
 						int duracion = rs.getInt("duracion");
-						
-						Pelicula p= new Pelicula(genero, nombre, duracion);
-						
+
+						Pelicula p = new Pelicula(genero, nombre, duracion);
+
 						peliculas.add(p);
-						}
+					}
 					conn.close();
-			
+
+				}
+
+			} catch (SQLException e1) {
+				logger.log(Level.WARNING, "El statement no se ha creado bien", e1);
+				e1.printStackTrace();
+			}
+			conn.close();// preguntar si se puede cerrar asi
+		} catch (SQLException e2) {
+			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
+			e2.printStackTrace();
+
+		}
+
+		return peliculas;
+
+	}
+
+	public static ArrayList<Pelicula> leerPeliculasGenero(String condicionGenero) { //ejemplo condicion (where)
+
+		ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+
+		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
+
+			try (Statement s = conn.createStatement()) {
+
+				try (ResultSet rs = s.executeQuery("SELECT genero, nombre, duracion FROM PELICULA WHERE genero = " + condicionGenero)) {
+						//preguntar si se puede hacer asi
+					while (rs.next()) {
+
+						String genero = rs.getString("genero");
+						String nombre = rs.getString("nombre");
+						int duracion = rs.getInt("duracion");
+
+						Pelicula p = new Pelicula(genero, nombre, duracion);
+
+						peliculas.add(p);
+					}
+					conn.close();
+
 				}
 
 			} catch (SQLException e1) {
