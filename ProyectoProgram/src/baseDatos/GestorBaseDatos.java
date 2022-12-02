@@ -125,7 +125,8 @@ public class GestorBaseDatos {
 		return peliculas;
 
 	}
-
+ 
+	
 	public static ArrayList<Pelicula> leerPeliculasGenero(String condicionGenero) { //ejemplo condicion (where)
 
 		ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
