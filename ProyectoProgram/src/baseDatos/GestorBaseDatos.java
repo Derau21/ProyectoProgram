@@ -10,6 +10,8 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import clases.Pelicula;
+
 
 public class GestorBaseDatos {
 	private Connection conn;
@@ -49,18 +51,55 @@ public class GestorBaseDatos {
 		}
 	}
 	
-	public void insertar(String nombre, String pelicula, int numeroEntradas, int importe) {
-		String sql="insert into reservas(nombre, pelicula, numeroEntradas, importe) values (?, ?, ?, ?)";
-		try (Connection conn=this.conectar(); PreparedStatement pstmt= conn.prepareStatement(sql)){
-			pstmt.setString(1, nombre); 
-			pstmt.setString(2, pelicula);
-			pstmt.setInt(3, numeroEntradas);
-			pstmt.setInt(4, importe);
-			pstmt.executeUpdate();
+	public void createTablePelicula () {
+		String sql= "Create table if not exists Pelicula (Genero text not null, Nombre text primary key, Duracion int not null )";		
+		try(Connection conn=this.conectar(); Statement stmt= conn.createStatement()) {
+			stmt.execute(sql);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	public static void insertarPelicula(Pelicula p) {
+		String genero = p.getGenero();
+		String nombre = p.getNombre();
+		int duracion = p.getDuracion();
+		
+		try(Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")){
+			
+			try(PreparedStatement ps = conn.prepareStatement("INSERT INTO PELICULA VALUES (?,?,?)")){
+				ps.setString(1,genero);
+				ps.setString(2,nombre);
+				ps.setInt(3,duracion);
+				
+				ps.executeUpdate();
+				
+				
+			}catch(SQLException e1) {
+				logger.log(Level.WARNING, "El prepared statement no se ha creado bien", e1);
+				e1.printStackTrace();
+			}
+			conn.close();// preguntar si se puede cerrar asi
+		} catch (SQLException e2) {
+			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
+			e2.printStackTrace();
+		}
+	}
+	
+	
+	
+//	public void insertar(String nombre, String pelicula, int numeroEntradas, int importe) {
+//		String sql="insert into reservas(nombre, pelicula, numeroEntradas, importe) values (?, ?, ?, ?)";
+//		try (Connection conn=this.conectar(); PreparedStatement pstmt= conn.prepareStatement(sql)){
+//			pstmt.setString(1, nombre); 
+//			pstmt.setString(2, pelicula);
+//			pstmt.setInt(3, numeroEntradas);
+//			pstmt.setInt(4, importe);
+//			pstmt.executeUpdate();
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//	}
 	
 	
 	
@@ -88,13 +127,10 @@ public class GestorBaseDatos {
 		public static void main(String[] args) {
 			GestorBaseDatos gestor= new GestorBaseDatos();
 			gestor.conectar();
-			gestor.createTable();
-			gestor.insertar("Bastiaan", "Forrest Gump", 2, 20);
-			gestor.insertar("Alex", "La vida es Bella", 8, 80);
-			gestor.insertar("Pablo", "Salvando al Soldado Ryan", 3, 30);
-			gestor.insertar("Unai", "Jumanji", 4, 40);
-			gestor.insertar("Ander", "La lista de Schiendler", 5, 50);
-			gestor.insertar("Adrian", "El pianista", 2, 20);
+			
+			gestor.createTablePelicula();
+			
+			
 			
 		}
 	
