@@ -4,24 +4,22 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import clases.Pelicula;
 
+
 public class GestorBaseDatos {
 	private Connection conn;
-	public static Logger logger = null;
-
-	private Connection conectar() {
+	public static  Logger logger = null;
+	
+	private Connection conectar() { 
 		Connection conn = null;
-		String url = "jdbc:sqlite:BDProyecto.db";
+		String url = "jdbc:sqlite:BDProyecto.db"; 
 		try {
 			conn = DriverManager.getConnection(url);
 
@@ -32,51 +30,52 @@ public class GestorBaseDatos {
 	}
 
 	public static void createNewDatabase(String fileName) {
-		String url = "jdbc:sqlite:" + fileName;
-		try (Connection conn = DriverManager.getConnection(url)) {
-			if (conn != null) {
-				DatabaseMetaData meta = conn.getMetaData();
-				logger.log(Level.INFO, "The driver name is " + meta.getDriverName());
-				logger.log(Level.INFO, "A new database has been created.");
+			String url = "jdbc:sqlite:" + fileName;
+			try (Connection conn = DriverManager.getConnection(url)) {
+				if (conn != null) {
+					DatabaseMetaData meta = conn.getMetaData();
+					logger.log(Level.INFO, "The driver name is " + meta.getDriverName());
+					logger.log(Level.INFO, "A new database has been created.");
+				}
+			} catch (SQLException e) {
+				logger.log(Level.WARNING, "No se pudo crear la base de datos", e);
 			}
-		} catch (SQLException e) {
-			logger.log(Level.WARNING, "No se pudo crear la base de datos", e);
-		}
-	}
+		} 
 
-	public void createTable() {
-		String sql = "Create table if not exists reservas (nombre text primary key, pelicula text not null, numeroEntradas int not null, importe int not null )";
-		try (Connection conn = this.conectar(); Statement stmt = conn.createStatement()) {
+	public void createTable () {
+		String sql= "Create table if not exists reservas (nombre text primary key, pelicula text not null, numeroEntradas int not null, importe int not null )";		
+		try(Connection conn=this.conectar(); Statement stmt= conn.createStatement()) {
 			stmt.execute(sql);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-
-	public void createTablePelicula() {
-		String sql = "Create table if not exists Pelicula (Genero text not null, Nombre text primary key, Duracion int not null )";
-		try (Connection conn = this.conectar(); Statement stmt = conn.createStatement()) {
+	
+	public void createTablePelicula () {
+		String sql= "Create table if not exists Pelicula (Genero text not null, Nombre text primary key, Duracion int not null )";		
+		try(Connection conn=this.conectar(); Statement stmt= conn.createStatement()) {
 			stmt.execute(sql);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-
+	
 	public static void insertarPelicula(Pelicula p) {
 		String genero = p.getGenero();
 		String nombre = p.getNombre();
 		int duracion = p.getDuracion();
-
-		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
-
-			try (PreparedStatement ps = conn.prepareStatement("INSERT INTO PELICULA VALUES (?,?,?)")) {
-				ps.setString(1, genero);
-				ps.setString(2, nombre);
-				ps.setInt(3, duracion);
-
+		
+		try(Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")){
+			
+			try(PreparedStatement ps = conn.prepareStatement("INSERT INTO PELICULA VALUES (?,?,?)")){
+				ps.setString(1,genero);
+				ps.setString(2,nombre);
+				ps.setInt(3,duracion);
+				
 				ps.executeUpdate();
-
-			} catch (SQLException e1) {
+				
+				
+			}catch(SQLException e1) {
 				logger.log(Level.WARNING, "El prepared statement no se ha creado bien", e1);
 				e1.printStackTrace();
 			}
@@ -86,6 +85,7 @@ public class GestorBaseDatos {
 			e2.printStackTrace();
 		}
 	}
+<<<<<<< HEAD
 
 	public static ArrayList<Pelicula> leerPeliculas() {
 
@@ -166,6 +166,11 @@ public class GestorBaseDatos {
 
 	}
 
+=======
+	
+	
+	
+>>>>>>> branch 'master' of https://github.com/Derau21/ProyectoProgram.git
 //	public void insertar(String nombre, String pelicula, int numeroEntradas, int importe) {
 //		String sql="insert into reservas(nombre, pelicula, numeroEntradas, importe) values (?, ?, ?, ?)";
 //		try (Connection conn=this.conectar(); PreparedStatement pstmt= conn.prepareStatement(sql)){
@@ -178,33 +183,41 @@ public class GestorBaseDatos {
 //			System.out.println(e.getMessage());
 //		}
 //	}
-
-	public void setLogger(Logger logger) {
+	
+	
+	
+	public void setLogger( Logger logger ) {
 		this.logger = logger;
-	}
-
-	private void log(Level level, String msg, Throwable excepcion) {
-		if (logger == null) { // Logger por defecto local:
-			logger = Logger.getLogger("BD-Local"); // Nombre del logger
-			logger.setLevel(Level.ALL); // Loguea todos los niveles
-			try {
-				logger.addHandler(new FileHandler("bd.log.xml", true)); // Y saca el log a fichero xml
-			} catch (Exception e) {
-				logger.log(Level.SEVERE, "No se pudo crear fichero de log", e);
-			}
 		}
-		if (excepcion == null)
-			logger.log(level, msg);
-		else
-			logger.log(level, msg, excepcion);
-	}
+		
+		private void log(Level level, String msg, Throwable excepcion) {
+			if (logger==null) {  // Logger por defecto local:
+				logger = Logger.getLogger( "BD-Local" );  // Nombre del logger
+				logger.setLevel(Level.ALL);  // Loguea todos los niveles
+				try {
+					logger.addHandler(new FileHandler("bd.log.xml", true));  // Y saca el log a fichero xml
+				} catch (Exception e) {
+					logger.log(Level.SEVERE, "No se pudo crear fichero de log", e);
+				}
+			}
+			if (excepcion==null)
+				logger.log(level, msg);
+			else
+				logger.log(level, msg, excepcion);
+		}
+	
 
-	public static void main(String[] args) {
-		GestorBaseDatos gestor = new GestorBaseDatos();
-		gestor.conectar();
-
-		gestor.createTablePelicula();
-
-	}
+		public static void main(String[] args) {
+			GestorBaseDatos gestor= new GestorBaseDatos();
+			gestor.conectar();
+			
+			gestor.createTablePelicula();
+			
+			
+			
+		}
+	
+	
+	
 
 }

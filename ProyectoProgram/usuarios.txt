@@ -8,5 +8,9 @@ basti;7
 a;a
 a;a;a
 Pablo;Hola
+<<<<<<< HEAD
+bastiaan;23
+=======
 Pablo;Hola
 Iker;Lekuona
+>>>>>>> branch 'master' of https://github.com/Derau21/ProyectoProgram.git
