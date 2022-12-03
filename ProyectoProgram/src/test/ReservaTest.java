@@ -19,7 +19,7 @@ public class ReservaTest {
 	
 	public void setUp() throws Exception{
 		
-		pelicula1= new Pelicula ("acción", "Piratas del Caribe", 2);
+		pelicula1= new Pelicula ("acción", "Piratas del Caribe", 2,1);
 		reserva1 = new Reserva (3, "16:30", pelicula1);
 		
 	}

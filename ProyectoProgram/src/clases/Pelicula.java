@@ -5,6 +5,7 @@ public class Pelicula {
 	private String genero;
 	private String nombre;
 	private int duracion;
+	private int id;
 
 	public Pelicula() {
 		super();
@@ -15,11 +16,12 @@ public class Pelicula {
 		this.nombre = nombre;
 	}
 
-	public Pelicula(String genero, String nombre, int duracion) {
+	public Pelicula(String genero, String nombre, int duracion, int id) {
 		super();
 		this.genero = genero;
 		this.nombre = nombre;
 		this.duracion = duracion;
+		this.id=id;
 
 	}
 
@@ -45,6 +47,16 @@ public class Pelicula {
 
 	public void setDuracion(int duracion) {
 		this.duracion = duracion;
+	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
