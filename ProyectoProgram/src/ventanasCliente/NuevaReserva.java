@@ -14,6 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import baseDatos.GestorBaseDatos;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
@@ -25,7 +28,8 @@ public class NuevaReserva extends JFrame {
 	private Reservas padre;
 	private JList list;
 	private Pelicula peli;
-	private DefaultListModel<Pelicula> defaulListModel;
+	private DefaultListModel<Pelicula> model;
+	private ArrayList<Pelicula> peliculas;
 	
 	public NuevaReserva(Reservas padre) {
 		this.padre=padre;
@@ -40,22 +44,22 @@ public class NuevaReserva extends JFrame {
 		
 		JLabel lblSeleccioneHorario = new JLabel("Seleccione horario");
 		lblSeleccioneHorario.setFont(new Font("Serif", Font.BOLD, 18));
-		lblSeleccioneHorario.setBounds(15, 74, 163, 25);
+		lblSeleccioneHorario.setBounds(15, 196, 163, 25);
 		contentPane.add(lblSeleccioneHorario);
 
 		JLabel lblIndiqueCuantosAsientos = new JLabel("Indique cuantos asientos desea");
 		lblIndiqueCuantosAsientos.setFont(new Font("Serif", Font.BOLD, 18));
-		lblIndiqueCuantosAsientos.setBounds(15, 150, 239, 25);
+		lblIndiqueCuantosAsientos.setBounds(15, 267, 239, 25);
 		contentPane.add(lblIndiqueCuantosAsientos);
 
 		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(216, 73, 72, 26);
+		comboBox.setBounds(216, 198, 72, 26);
 		contentPane.add(comboBox);
 		String[] opciones = { "16:30", "18:30", "20:30" };
 		comboBox.setModel(new DefaultComboBoxModel(opciones));
 
 		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(291, 150, 72, 26);
+		comboBox_1.setBounds(287, 269, 72, 26);
 		contentPane.add(comboBox_1);
 		String[] opciones2 = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };// maximo
 																					// se
@@ -76,7 +80,7 @@ public class NuevaReserva extends JFrame {
 
 			}
 		});
-		btnAceptar.setBounds(63, 199, 115, 29);
+		btnAceptar.setBounds(63, 351, 115, 29);
 		contentPane.add(btnAceptar);
 
 		JButton btnAtrs = new JButton("Atr\u00E1s");
@@ -87,14 +91,33 @@ public class NuevaReserva extends JFrame {
 				NuevaReserva.this.dispose();
 			}
 		});
-		btnAtrs.setBounds(248, 199, 115, 29);
+		btnAtrs.setBounds(248, 351, 115, 29);
 		contentPane.add(btnAtrs);
 
 		JLabel lblElPrecioDe = new JLabel("El precio de cada entrada son: 10\u20AC");
 		lblElPrecioDe.setFont(new Font("Serif", Font.BOLD, 18));
 		lblElPrecioDe.setBounds(63, 16, 283, 25);
 		contentPane.add(lblElPrecioDe);
-
 		
+		JLabel lblSeleccioneHorario_1 = new JLabel("Seleccione pelicula");
+		lblSeleccioneHorario_1.setFont(new Font("Serif", Font.BOLD, 18));
+		lblSeleccioneHorario_1.setBounds(15, 72, 163, 25);
+		contentPane.add(lblSeleccioneHorario_1);
+		
+		JList list_1 = new JList();
+		list_1.setBounds(188, 52, 108, 111);
+		contentPane.add(list_1);
+
+		CargarJList();
+		
+	}
+	
+	public void CargarJList() {
+		this.peliculas = GestorBaseDatos.leerPeliculas();
+		this.model = new DefaultListModel<Pelicula>();
+		for (Pelicula pelicula : peliculas) {
+			model.addElement(pelicula);
+		}
+		list.setModel(model);
 	}
 }

@@ -54,7 +54,7 @@ public class GestorBaseDatos {
 	}
 	
 	public void createTablePelicula () {
-		String sql= "Create table if not exists Pelicula (Genero text not null, Nombre text primary key, Duracion int not null )";		
+		String sql= "Create table if not exists Pelicula (Genero text not null, Nombre text primary key, Duracion int not null, Id int not null )";		
 		try(Connection conn=this.conectar(); Statement stmt= conn.createStatement()) {
 			stmt.execute(sql);
 		} catch (Exception e) {
@@ -66,13 +66,15 @@ public class GestorBaseDatos {
 		String genero = p.getGenero();
 		String nombre = p.getNombre();
 		int duracion = p.getDuracion();
+		int id=p.getId();
 		
 		try(Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")){
 			
-			try(PreparedStatement ps = conn.prepareStatement("INSERT INTO PELICULA VALUES (?,?,?)")){
+			try(PreparedStatement ps = conn.prepareStatement("INSERT INTO PELICULA VALUES (?,?,?,?)")){
 				ps.setString(1,genero);
 				ps.setString(2,nombre);
 				ps.setInt(3,duracion);
+				ps.setInt(4,id);
 				
 				ps.executeUpdate();
 				
@@ -97,15 +99,16 @@ public class GestorBaseDatos {
 
 			try (Statement s = conn.createStatement()) {
 
-				try (ResultSet rs = s.executeQuery("SELECT genero, nombre, duracion FROM PELICULA")) {
+				try (ResultSet rs = s.executeQuery("SELECT genero, nombre, duracion, id FROM PELICULA")) {
 
 					while (rs.next()) {
 
 						String genero = rs.getString("genero");
 						String nombre = rs.getString("nombre");
 						int duracion = rs.getInt("duracion");
+						int id=rs.getInt("id");
 
-						Pelicula p = new Pelicula(genero, nombre, duracion);
+						Pelicula p = new Pelicula(genero, nombre, duracion, id);
 
 						peliculas.add(p);
 					}
@@ -137,15 +140,16 @@ public class GestorBaseDatos {
 
 			try (Statement s = conn.createStatement()) {
 
-				try (ResultSet rs = s.executeQuery("SELECT genero, nombre, duracion FROM PELICULA WHERE genero = " + condicionGenero)) {
+				try (ResultSet rs = s.executeQuery("SELECT genero, nombre, duracion, id FROM PELICULA WHERE genero = " + condicionGenero)) {
 						//preguntar si se puede hacer asi
 					while (rs.next()) {
 
 						String genero = rs.getString("genero");
 						String nombre = rs.getString("nombre");
 						int duracion = rs.getInt("duracion");
+						int id= rs.getInt("id");
 
-						Pelicula p = new Pelicula(genero, nombre, duracion);
+						Pelicula p = new Pelicula(genero, nombre, duracion, id);
 
 						peliculas.add(p);
 					}
@@ -213,9 +217,15 @@ public class GestorBaseDatos {
 			GestorBaseDatos gestor= new GestorBaseDatos();
 			gestor.conectar();
 			
-			gestor.createTablePelicula();
+			//gestor.createTablePelicula();
+//			Pelicula pelicula1= new Pelicula("Accion", "Piratas del caribe", 145, 1);
+//			Pelicula pelicula2= new Pelicula("Terror", "Homlet", 120, 2);
+//			Pelicula pelicula3= new Pelicula("Comedia", "Mr Bean", 100, 3);
+//			gestor.insertarPelicula(pelicula1);
+//			gestor.insertarPelicula(pelicula2);
+//			gestor.insertarPelicula(pelicula3);
 			
-			
+		
 			
 		}
 	
