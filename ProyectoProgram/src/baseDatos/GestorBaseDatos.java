@@ -62,6 +62,8 @@ public class GestorBaseDatos {
 		}
 	}
 	
+	
+	
 	public static void insertarPelicula(Pelicula p) {
 		String genero = p.getGenero();
 		String nombre = p.getNombre();
@@ -107,7 +109,8 @@ public class GestorBaseDatos {
 						String nombre = rs.getString("nombre");
 						int duracion = rs.getInt("duracion");
 						int id=rs.getInt("id");
-
+						
+						System.out.println("EL ID ES " + id);
 						Pelicula p = new Pelicula(genero, nombre, duracion, id);
 
 						peliculas.add(p);
@@ -216,14 +219,14 @@ public class GestorBaseDatos {
 		public static void main(String[] args) {
 			GestorBaseDatos gestor= new GestorBaseDatos();
 			gestor.conectar();
-			
-			//gestor.createTablePelicula();
-//			Pelicula pelicula1= new Pelicula("Accion", "Piratas del caribe", 145, 1);
-//			Pelicula pelicula2= new Pelicula("Terror", "Homlet", 120, 2);
-//			Pelicula pelicula3= new Pelicula("Comedia", "Mr Bean", 100, 3);
-//			gestor.insertarPelicula(pelicula1);
-//			gestor.insertarPelicula(pelicula2);
-//			gestor.insertarPelicula(pelicula3);
+	
+			gestor.createTablePelicula();
+			Pelicula pelicula1= new Pelicula("Accion", "Piratas del caribe", 145, 1);
+			Pelicula pelicula2= new Pelicula("Terror", "Homlet", 120, 2);
+			Pelicula pelicula3= new Pelicula("Comedia", "Mr Bean", 100, 3);
+			gestor.insertarPelicula(pelicula1);
+			gestor.insertarPelicula(pelicula2);
+			gestor.insertarPelicula(pelicula3);
 			
 		
 			

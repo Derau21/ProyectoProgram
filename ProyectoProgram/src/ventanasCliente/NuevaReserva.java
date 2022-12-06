@@ -26,14 +26,13 @@ public class NuevaReserva extends JFrame {
 
 	private JPanel contentPane;
 	private Reservas padre;
-	private JList list;
+	private JList<Pelicula> list;
 	private Pelicula peli;
-	private DefaultListModel<Pelicula> model;
-	private ArrayList<Pelicula> peliculas;
-	
+
+		
 	public NuevaReserva(Reservas padre) {
 		this.padre=padre;
-		this.peli=peli;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 578, 470);
 		contentPane = new JPanel();
@@ -104,20 +103,34 @@ public class NuevaReserva extends JFrame {
 		lblSeleccioneHorario_1.setBounds(15, 72, 163, 25);
 		contentPane.add(lblSeleccioneHorario_1);
 		
-		JList list_1 = new JList();
-		list_1.setBounds(188, 52, 108, 111);
-		contentPane.add(list_1);
-
-		CargarJList();
+		//inicializar Jlist
+		list = new JList<Pelicula>();
+		
+		// cargamos el Jlist con datos utilizando el metodo
+		cargarJList(list);
+		
+		//ponemos el Jlist en su sitio y lo añadimos al contentPane
+		list.setBounds(238, 53, 108, 111);
+		list.setVisible(true);
+		contentPane.add(list);
 		
 	}
 	
-	public void CargarJList() {
-		this.peliculas = GestorBaseDatos.leerPeliculas();
-		this.model = new DefaultListModel<Pelicula>();
+	public void cargarJList(JList<Pelicula> jList) {
+		
+		// cargar lista de peliculas
+		ArrayList<Pelicula> peliculas = GestorBaseDatos.leerPeliculas();
+		
+		// inicializar el defaultlistmodel
+		DefaultListModel<Pelicula> model = new DefaultListModel<Pelicula>();
+		
+		//añadimos cada pelicula al defaultlistmodel
 		for (Pelicula pelicula : peliculas) {
 			model.addElement(pelicula);
 		}
+		
+		// añadimos el model a la lista
 		list.setModel(model);
+		
 	}
 }
