@@ -65,18 +65,14 @@ public class GestorBaseDatos {
 	
 	
 	public static void insertarPelicula(Pelicula p) {
-		String genero = p.getGenero();
-		String nombre = p.getNombre();
-		int duracion = p.getDuracion();
-		int id=p.getId();
-		
+			
 		try(Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")){
 			
 			try(PreparedStatement ps = conn.prepareStatement("INSERT INTO PELICULA VALUES (?,?,?,?)")){
-				ps.setString(1,genero);
-				ps.setString(2,nombre);
-				ps.setInt(3,duracion);
-				ps.setInt(4,id);
+				ps.setString(1, p.getGenero());
+				ps.setString(2, p.getNombre());
+				ps.setInt(3, p.getDuracion());
+				ps.setInt(4, p.getId());
 				
 				ps.executeUpdate();
 				
