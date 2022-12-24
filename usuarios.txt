@@ -3,10 +3,11 @@ a;lex
 bastiaan7;123
 bastu;eo
 BAstu;s
-añes;ss;ss
+aï¿½es;ss;ss
 basti;7
 a;a;a
 Pablo;Hola
 bastiaan;23
 Pablo;Hola
 Iker;Lekuona
+b;b

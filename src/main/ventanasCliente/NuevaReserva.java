@@ -1,6 +1,5 @@
 package main.ventanasCliente;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -71,8 +70,8 @@ public class NuevaReserva extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Reserva r = new Reserva(Integer.parseInt(comboBox_1.getSelectedItem() + ""),
 						(comboBox.getSelectedItem() + ""), peli);
-				SeleccionHorarioYEntradas Nr = new SeleccionHorarioYEntradas(NuevaReserva.this, r);
-				Nr.setVisible(true);
+				SeleccionAsientos seleccionAsientos= new SeleccionAsientos(NuevaReserva.this, r);
+				seleccionAsientos.setVisible(true);
 				NuevaReserva.this.setVisible(false);
 
 			}
@@ -107,7 +106,7 @@ public class NuevaReserva extends JFrame {
 		// cargamos el Jlist con datos utilizando el metodo
 		cargarJList(list);
 		
-		//ponemos el Jlist en su sitio y lo a?adimos al contentPane
+		//ponemos el Jlist en su sitio y lo anyadimos al contentPane
 		list.setBounds(238, 53, 108, 111);
 		list.setVisible(true);
 		contentPane.add(list);
@@ -127,7 +126,7 @@ public class NuevaReserva extends JFrame {
 			model.addElement(pelicula);
 		}
 		
-		// a?adimos el model a la lista
+		// anyadimos el model a la lista
 		list.setModel(model);
 		
 	}
