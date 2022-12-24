@@ -1,15 +1,14 @@
-package ventanasCliente;
-import utilidades.Utilidades;
-import ventanaInicial.Login;
-
+package main.ventanasCliente;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import clases.Cliente;
-import clases.Usuario;
+import main.clases.Cliente;
+import main.clases.Usuario;
+import main.utilidades.Utilidades;
+import main.ventanaInicial.Login;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

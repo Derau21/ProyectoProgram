@@ -1,4 +1,4 @@
-package ventanaInicial;
+package main.ventanaInicial;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -7,16 +7,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import baseDatos.GestorBaseDatos;
-import clases.Administrador;
-import clases.Cliente;
-import clases.Usuario;
-import utilidades.Utilidades;
-import ventanasAdministrador.CrearAdministrador;
-import ventanasAdministrador.EliminarPelicula;
-import ventanasAdministrador.General;
-import ventanasCliente.CrearCliente;
-import ventanasCliente.Reservas;
+import main.clases.Administrador;
+import main.clases.Cliente;
+import main.clases.Usuario;
+import main.baseDatos.GestorBaseDatos;
+import main.utilidades.Utilidades;
+import main.ventanasAdministrador.CrearAdministrador;
+import main.ventanasAdministrador.EliminarPelicula;
+import main.ventanasAdministrador.General;
+import main.ventanasCliente.CrearCliente;
+import main.ventanasCliente.Reservas;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;

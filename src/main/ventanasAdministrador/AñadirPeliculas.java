@@ -1,4 +1,4 @@
-package ventanasCliente;
+package main.ventanasAdministrador;
 
 import java.awt.EventQueue;
 
@@ -6,15 +6,25 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class DetallesReserva extends JFrame {
-
+public class AñadirPeliculas extends JFrame {
+	
 	private JPanel contentPane;
-	private VerReserva padre;
+	private General padre;
+	
+	
+	
 
+	/**
+	 * Launch the application.
+	 */
 	
-	
-	public DetallesReserva(VerReserva padre) {
+	/**
+	 * Create the frame.
+	 */
+	public AñadirPeliculas(General padre) {
 		this.padre=padre;
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

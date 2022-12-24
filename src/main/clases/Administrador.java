@@ -1,4 +1,4 @@
-package clases;
+package main.clases;
 
 public class Administrador extends Usuario{
 	private String dNI;

@@ -7,8 +7,8 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import clases.Pelicula;
-import clases.Reserva;
+import main.clases.Pelicula;
+import main.clases.Reserva;
 
 public class ReservaTest {
 	

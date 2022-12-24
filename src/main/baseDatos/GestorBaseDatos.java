@@ -1,4 +1,4 @@
-package baseDatos;
+package main.baseDatos;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -12,7 +12,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import clases.Pelicula;
+import main.clases.Pelicula;
 
 
 public class GestorBaseDatos {

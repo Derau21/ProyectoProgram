@@ -1,4 +1,4 @@
-package ventanasAdministrador;
+package main.ventanasCliente;
 
 import java.awt.EventQueue;
 
@@ -6,15 +6,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class ModificarHorarios extends JFrame {
+public class DetallesReserva extends JFrame {
 
 	private JPanel contentPane;
-	private General padre;
+	private VerReserva padre;
 
 	
-	public ModificarHorarios(General padre) {
-		this.padre = padre;
-		
+	
+	public DetallesReserva(VerReserva padre) {
+		this.padre=padre;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

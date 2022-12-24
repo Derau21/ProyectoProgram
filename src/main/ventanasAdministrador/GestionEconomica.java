@@ -1,4 +1,4 @@
-package ventanasCliente;
+package main.ventanasAdministrador;
 
 import java.awt.EventQueue;
 
@@ -6,14 +6,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import clases.Reserva;
-
-public class SeleccionHorarioYEntradas extends JFrame {
+public class GestionEconomica extends JFrame {
 
 	private JPanel contentPane;
+	private General padre;
 
-
-	public SeleccionHorarioYEntradas(NuevaReserva nuevaReserva, Reserva r) {
+	
+	public GestionEconomica(General padre) {
+		this.padre = padre;
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();

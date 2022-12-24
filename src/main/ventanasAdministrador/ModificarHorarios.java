@@ -1,4 +1,4 @@
-package ventanasAdministrador;
+package main.ventanasAdministrador;
 
 import java.awt.EventQueue;
 
@@ -6,15 +6,14 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class EliminarPelicula extends JFrame {
+public class ModificarHorarios extends JFrame {
 
 	private JPanel contentPane;
 	private General padre;
 
 	
-	public EliminarPelicula(General padre) {
-		this.padre=padre;
-		
+	public ModificarHorarios(General padre) {
+		this.padre = padre;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);

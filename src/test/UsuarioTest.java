@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import clases.Usuario;
+import main.clases.Usuario;
 
 public class UsuarioTest {
 

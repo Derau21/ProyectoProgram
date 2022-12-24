@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import clases.Sala;
-import clases.Usuario;
+import main.clases.Sala;
+import main.clases.Usuario;
 
 public class SalaTest {
 	private Sala sala1;

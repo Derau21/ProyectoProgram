@@ -1,4 +1,4 @@
-package ventanasCliente;
+package main.ventanasCliente;
 
 import java.awt.EventQueue;
 

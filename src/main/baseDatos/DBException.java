@@ -1,4 +1,4 @@
-package baseDatos;
+package main.baseDatos;
 
 public class DBException extends Exception {
 	

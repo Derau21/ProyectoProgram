@@ -1,4 +1,4 @@
-package ventanasAdministrador;
+package main.ventanasAdministrador;
 
 import java.awt.EventQueue;
 
@@ -6,22 +6,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class AñadirPeliculas extends JFrame {
-	
+public class EliminarPelicula extends JFrame {
+
 	private JPanel contentPane;
 	private General padre;
-	
-	
-	
 
-	/**
-	 * Launch the application.
-	 */
 	
-	/**
-	 * Create the frame.
-	 */
-	public AñadirPeliculas(General padre) {
+	public EliminarPelicula(General padre) {
 		this.padre=padre;
 		
 		

@@ -1,4 +1,4 @@
-package utilidades;
+package main.utilidades;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 
-import baseDatos.GestorBaseDatos;
-import clases.Administrador;
-import clases.Cliente;
-import clases.Usuario;
+import main.clases.Administrador;
+import main.clases.Cliente;
+import main.clases.Usuario;
+import main.baseDatos.GestorBaseDatos;
 
 public class Utilidades {
 

@@ -1,4 +1,4 @@
-package ventanasCliente;
+package main.ventanasCliente;
 
 import java.awt.EventQueue;
 
@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import clases.Usuario;
-import ventanaInicial.Login;
-import ventanasAdministrador.AñadirPeliculas;
-import ventanasAdministrador.General;
+import main.clases.Usuario;
+import main.ventanaInicial.Login;
+import main.ventanasAdministrador.AñadirPeliculas;
+import main.ventanasAdministrador.General;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;

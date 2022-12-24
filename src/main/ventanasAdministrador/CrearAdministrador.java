@@ -1,4 +1,4 @@
-package ventanasAdministrador;
+package main.ventanasAdministrador;
 
 import java.awt.EventQueue;
 
@@ -6,11 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import clases.Administrador;
-import clases.Usuario;
-import utilidades.Utilidades;
-import ventanaInicial.Login;
-import ventanasCliente.CrearCliente;
+import main.clases.Administrador;
+import main.clases.Usuario;
+import main.utilidades.Utilidades;
+import main.ventanaInicial.Login;
+import main.ventanasCliente.CrearCliente;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
