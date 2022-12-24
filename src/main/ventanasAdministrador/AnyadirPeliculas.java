@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class AñadirPeliculas extends JFrame {
+public class AnyadirPeliculas extends JFrame {
 	
 	private JPanel contentPane;
 	private General padre;
@@ -21,7 +21,7 @@ public class AñadirPeliculas extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AñadirPeliculas(General padre) {
+	public AnyadirPeliculas(General padre) {
 		this.padre=padre;
 		
 		

@@ -8,7 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import main.clases.Usuario;
 import main.ventanaInicial.Login;
-import main.ventanasAdministrador.AñadirPeliculas;
+import main.ventanasAdministrador.AnyadirPeliculas;
 import main.ventanasAdministrador.General;
 
 import javax.swing.JButton;

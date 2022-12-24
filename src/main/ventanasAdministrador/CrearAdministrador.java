@@ -87,14 +87,14 @@ public class CrearAdministrador extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usuarioIntroducido = textField.getText();
-				String contraseñaIntroducida = passwordField.getText();
+				String contrasenyaIntroducida = passwordField.getText();
 				String dNIIntroducida = textField_1.getText();
 
-				if(!usuarioIntroducido.equals("") && !contraseñaIntroducida.equals("") && !dNIIntroducida.equals("")){//comprobar que se han rellenado usuario y contraseña
+				if(!usuarioIntroducido.equals("") && !contrasenyaIntroducida.equals("") && !dNIIntroducida.equals("")){//comprobar que se han rellenado usuario y contrase?a
 					ArrayList<Usuario>usuarios = Utilidades.leerUsuarios(); //para rellenar el array con los usuarios que ya tienes
 					//usuarios.remove(clienteSeleccioando); //se borra el cliente
 
-					usuarios.add(new Administrador(usuarioIntroducido,contraseñaIntroducida, dNIIntroducida )); //se crea el admin
+					usuarios.add(new Administrador(usuarioIntroducido,contrasenyaIntroducida, dNIIntroducida )); //se crea el admin
 
 					Utilidades.escribirFihcero(usuarios);
 
@@ -103,7 +103,7 @@ public class CrearAdministrador extends JFrame {
 					JOptionPane.showMessageDialog(CrearAdministrador.this, "Administrador creado");
 					
 					padre.setVisible(true);
-					CrearAdministrador.this.setVisible(false); //vueleves a la pestaña anterior
+					CrearAdministrador.this.setVisible(false); //vueleves a la pesta?a anterior
 					CrearAdministrador.this.dispose();
 					
 				}else{

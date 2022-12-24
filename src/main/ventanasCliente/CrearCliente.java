@@ -70,14 +70,14 @@ public class CrearCliente extends JFrame {
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usuarioIntroducido = textField.getText();
-				String contraseñaIntroducida = new String (passwordField.getPassword());
+				String contrasenyaIntroducida = new String (passwordField.getPassword());
 				
 
-				if(!usuarioIntroducido.equals("") && !contraseñaIntroducida.equals("")){//comprobar que se han rellenado usuario y contraseña
+				if(!usuarioIntroducido.equals("") && !contrasenyaIntroducida.equals("")){//comprobar que se han rellenado usuario y contrasenya
 					ArrayList<Usuario>usuarios = Utilidades.leerUsuarios(); //para rellenar el array con los usuarios que ya tienes
 					//usuarios.remove(clienteSeleccioando); //se borra el cliente
 
-					usuarios.add(new Cliente(usuarioIntroducido,contraseñaIntroducida)); //se crea el admin
+					usuarios.add(new Cliente(usuarioIntroducido,contrasenyaIntroducida)); //se crea el admin
 
 					Utilidades.escribirFihcero(usuarios);
 
@@ -86,7 +86,7 @@ public class CrearCliente extends JFrame {
 					JOptionPane.showMessageDialog(CrearCliente.this, "Cliente creado");
 					
 					padre.setVisible(true);
-					CrearCliente.this.setVisible(false); //vueleves a la pestaña anterior
+					CrearCliente.this.setVisible(false); //vueleves a la pesta?a anterior
 					CrearCliente.this.dispose();
 					
 

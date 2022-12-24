@@ -31,16 +31,16 @@ public class General extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnAñadirPelicula = new JButton("Añadir Pelicula");
-		btnAñadirPelicula.addActionListener(new ActionListener() {
+		JButton btnAnyadirPelicula = new JButton("A?adir Pelicula");
+		btnAnyadirPelicula.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				AñadirPeliculas ap = new AñadirPeliculas(General.this);
+				AnyadirPeliculas ap = new AnyadirPeliculas(General.this);
 				ap.setVisible(true);
 				General.this.setVisible(false);
 			}
 		});
-		btnAñadirPelicula.setBounds(57, 98, 176, 54);
-		contentPane.add(btnAñadirPelicula);
+		btnAnyadirPelicula.setBounds(57, 98, 176, 54);
+		contentPane.add(btnAnyadirPelicula);
 		
 		JButton btnEliminarPelicula = new JButton("Eliminar Pelicula");
 		btnEliminarPelicula.addActionListener(new ActionListener() {
@@ -65,15 +65,15 @@ public class General extends JFrame {
 		btnModificarHorarios.setBounds(57, 263, 176, 54);
 		contentPane.add(btnModificarHorarios);
 		
-		JButton btnGestionEconómica = new JButton("Gestión Económica");
-		btnGestionEconómica.addActionListener(new ActionListener() {
+		JButton btnGestionEconomica = new JButton("Gestion Econ?mica");
+		btnGestionEconomica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GestionEconomica ge = new GestionEconomica(General.this);
 				ge.setVisible(true);
 				General.this.setVisible(false);
 			}
 		});
-		btnGestionEconómica.setBounds(57, 345, 176, 54);
-		contentPane.add(btnGestionEconómica);
+		btnGestionEconomica.setBounds(57, 345, 176, 54);
+		contentPane.add(btnGestionEconomica);
 	}
 }

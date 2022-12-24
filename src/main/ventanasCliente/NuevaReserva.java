@@ -107,7 +107,7 @@ public class NuevaReserva extends JFrame {
 		// cargamos el Jlist con datos utilizando el metodo
 		cargarJList(list);
 		
-		//ponemos el Jlist en su sitio y lo añadimos al contentPane
+		//ponemos el Jlist en su sitio y lo a?adimos al contentPane
 		list.setBounds(238, 53, 108, 111);
 		list.setVisible(true);
 		contentPane.add(list);
@@ -122,12 +122,12 @@ public class NuevaReserva extends JFrame {
 		// inicializar el defaultlistmodel
 		DefaultListModel<Pelicula> model = new DefaultListModel<Pelicula>();
 		
-		//añadimos cada pelicula al defaultlistmodel
+		//anyadimos cada pelicula al defaultlistmodel
 		for (Pelicula pelicula : peliculas) {
 			model.addElement(pelicula);
 		}
 		
-		// añadimos el model a la lista
+		// a?adimos el model a la lista
 		list.setModel(model);
 		
 	}
