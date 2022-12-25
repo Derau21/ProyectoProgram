@@ -9,6 +9,10 @@ public class Usuario {
 	public String username;
 	public String contrasenya;
 	
+	public Usuario() {
+		
+	}
+	
 	public Usuario(String nombre, int edad, String username, String contrasenya) {
 		super();
 		this.nombre = nombre;

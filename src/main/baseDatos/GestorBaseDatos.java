@@ -12,11 +12,14 @@ import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 import main.clases.Pelicula;
+import main.clases.Reserva;
 
 
 public class GestorBaseDatos {
+	
 	private Connection conn;
 	public static  Logger logger = Logger.getLogger( "BaseDatos" );
 	
@@ -36,8 +39,8 @@ public class GestorBaseDatos {
 	public static void configurarBD(){
 
 		// Crear Tablas si no existen
-		createTableReservas();
 		createTablePelicula();
+		createTableReservas();
 
 		// Cargar Tabla
 		cargarTablaPeliculas();
@@ -57,8 +60,9 @@ public class GestorBaseDatos {
 		} 
 
 	public static void createTableReservas() {
-		String sql= "Create table if not exists reservas (nombre text primary key, pelicula text not null, numeroEntradas int not null, importe int not null )";		
+		String sql= "Create table if not exists reservas (id int primary key, hora text not null, idPelicula int, nombreUsuario  not null, asientos text not null,  FOREIGN KEY (id) references pelicula (id))";		
 		try(Connection conn = conectar(); Statement stmt= conn.createStatement()) {
+			//stmt.executeUpdate("DROP TABLE IF EXISTS reservas");
 			stmt.execute(sql);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -66,8 +70,9 @@ public class GestorBaseDatos {
 	}
 	
 	public static void createTablePelicula () {
-		String sql= "Create table if not exists Pelicula (Genero text not null, Nombre text primary key, Duracion int not null, Id int not null )";		
+		String sql= "Create table if not exists pelicula (id int primary key, nombre text not null, genero text not null, duracion int not null )";		
 		try(Connection conn = conectar(); Statement stmt= conn.createStatement()) {
+			stmt.executeUpdate("DROP TABLE IF EXISTS pelicula");
 			stmt.execute(sql);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -78,18 +83,21 @@ public class GestorBaseDatos {
 
 		Pelicula piratas =  leerPeliculaPorNombre("Piratas del caribe");
 		if (piratas == null){
-			piratas = new Pelicula("Accion", "Piratas del caribe", 145, 1);
+			logger.log(Level.INFO, "Insertando pelicula piratas");
+			piratas = new Pelicula("Accion", "Piratas del caribe", 145);
 			insertarPelicula(piratas);
 		}
 		Pelicula homlet =  leerPeliculaPorNombre("Homlet");
 		if (homlet == null){
-			homlet= new Pelicula("Terror", "Homlet", 120, 2);
+			logger.log(Level.INFO, "Insertando pelicula piratas");
+			homlet= new Pelicula("Terror", "Homlet", 120);
 			insertarPelicula(homlet);
 		}
 
 		Pelicula mrBean =  leerPeliculaPorNombre("Mr Bean");
 		if (mrBean == null){
-			mrBean= new Pelicula("Comedia", "Mr Bean", 100, 3);
+			logger.log(Level.INFO, "Insertando pelicula piratas");
+			mrBean= new Pelicula("Comedia", "Mr Bean", 100);
 			insertarPelicula(mrBean);
 		}
 	}
@@ -97,17 +105,23 @@ public class GestorBaseDatos {
 	public static void insertarPelicula(Pelicula p) {
 			
 		try(Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")){
-
+			
+			int numeroFilas;
+			
+			try (Statement s = conn.createStatement()) {
+				try (ResultSet rs = s.executeQuery("SELECT COUNT(*) FROM Pelicula")) {
+					numeroFilas = rs.getInt(1);
+				}
+			}
 
 			
 			try(PreparedStatement ps = conn.prepareStatement("INSERT INTO PELICULA VALUES (?,?,?,?)")){
-				ps.setString(1, p.getGenero());
+				ps.setInt(1, numeroFilas+1);
 				ps.setString(2, p.getNombre());
-				ps.setInt(3, p.getDuracion());
-				ps.setInt(4, p.getId());
+				ps.setString(3, p.getGenero());
+				ps.setInt(4, p.getDuracion());
 				
 				ps.executeUpdate();
-				
 				
 			}catch(SQLException e1) {
 				logger.log(Level.WARNING, "El prepared statement no se ha creado bien", e1);
@@ -208,22 +222,21 @@ public class GestorBaseDatos {
 
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
 
-			try (Statement s = conn.createStatement()) {
+			try (PreparedStatement ps = conn.prepareStatement("SELECT genero, nombre, duracion, id FROM PELICULA WHERE nombre = ?")) {
+				ps.setString(1, nombrePelicula);
+				
+				ResultSet rs = ps.executeQuery();
 
-				try (ResultSet rs = s.executeQuery("SELECT * FROM PELICULA WHERE nombre = " + nombrePelicula )) {
+				if (rs.next()) {
+					String genero = rs.getString("genero");
+					String nombre = rs.getString("nombre");
+					int duracion = rs.getInt("duracion");
+					int id = rs.getInt("id");
 
-					if (rs.next()) {
-
-						String genero = rs.getString("genero");
-						String nombre = rs.getString("nombre");
-						int duracion = rs.getInt("duracion");
-						int id = rs.getInt("id");
-
-						pelicula = new Pelicula(genero, nombre, duracion, id);
-					}
-					conn.close();
+					pelicula = new Pelicula(genero, nombre, duracion, id);
 				}
-
+					
+					conn.close();
 			} catch (SQLException e1) {
 				logger.log(Level.WARNING, "El statement no se ha creado bien", e1);
 				e1.printStackTrace();
@@ -237,23 +250,39 @@ public class GestorBaseDatos {
 		return pelicula;
 	}
 
-
-	
-	
-	
-
-//	public void insertar(String nombre, String pelicula, int numeroEntradas, int importe) {
-//		String sql="insert into reservas(nombre, pelicula, numeroEntradas, importe) values (?, ?, ?, ?)";
-//		try (Connection conn=this.conectar(); PreparedStatement pstmt= conn.prepareStatement(sql)){
-//			pstmt.setString(1, nombre); 
-//			pstmt.setString(2, pelicula);
-//			pstmt.setInt(3, numeroEntradas);
-//			pstmt.setInt(4, importe);
-//			pstmt.executeUpdate();
-//		} catch (Exception e) {
-//			System.out.println(e.getMessage());
-//		}
-//	}
+	public static void insertarReserva(Reserva reserva) {
+		try(Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")){
+			
+			int numeroFilas;
+			
+			try (Statement s = conn.createStatement()) {
+				try (ResultSet rs = s.executeQuery("SELECT COUNT(*) FROM reservas")) {
+					numeroFilas = rs.getInt(1);
+				}
+				
+			}
+			try(PreparedStatement ps = conn.prepareStatement("INSERT INTO reservas VALUES (?,?,?,?,?)")){
+				ps.setInt(1, numeroFilas+1);
+				ps.setString(2, reserva.getHora());
+				ps.setInt(3, reserva.getPeli().getId());
+				ps.setString(4, reserva.getCliente().getUsername());
+				// convierte una lista en un string separado por comas
+				String asientos = reserva.getAsientos().stream().collect(Collectors.joining(", "));
+				ps.setString(5, asientos);
+				
+				ps.executeUpdate();
+				
+			}catch(SQLException e1) {
+				logger.log(Level.WARNING, "El prepared statement no se ha creado bien", e1);
+				e1.printStackTrace();
+			}
+			conn.close();// preguntar si se puede cerrar asi
+		} catch (SQLException e2) {
+			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
+			e2.printStackTrace();
+		}
+		
+	}
 	
 	
 	
@@ -280,15 +309,15 @@ public class GestorBaseDatos {
 
 		public static void main(String[] args) {
 			GestorBaseDatos gestor= new GestorBaseDatos();
-			gestor.conectar();
-	
-			gestor.createTablePelicula();
-			Pelicula pelicula1= new Pelicula("Accion", "Piratas del caribe", 145, 1);
-			Pelicula pelicula2= new Pelicula("Terror", "Homlet", 120, 2);
-			Pelicula pelicula3= new Pelicula("Comedia", "Mr Bean", 100, 3);
-			gestor.insertarPelicula(pelicula1);
-			gestor.insertarPelicula(pelicula2);
-			gestor.insertarPelicula(pelicula3);
+//			gestor.conectar();
+//	
+//			gestor.createTablePelicula();
+//			Pelicula pelicula1= new Pelicula("Accion", "Piratas del caribe", 145, 1);
+//			Pelicula pelicula2= new Pelicula("Terror", "Homlet", 120, 2);
+//			Pelicula pelicula3= new Pelicula("Comedia", "Mr Bean", 100, 3);
+//			gestor.insertarPelicula(pelicula1);
+//			gestor.insertarPelicula(pelicula2);
+//			gestor.insertarPelicula(pelicula3);
 			
 		
 			

@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import main.clases.Cliente;
 import main.clases.Usuario;
 import main.ventanaInicial.Login;
 import main.ventanasAdministrador.AnyadirPeliculas;
@@ -19,7 +20,11 @@ public class Reservas extends JFrame {
 
 	private JPanel contentPane;
 	
-	public Reservas( Usuario usuarioIntroducido) {
+	private Cliente cliente;
+	
+	public Reservas(Cliente  cliente) {
+		
+		this.cliente = cliente;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -32,7 +37,7 @@ public class Reservas extends JFrame {
 		JButton btnNuevaReserva = new JButton("Nueva Reserva");
 		btnNuevaReserva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				NuevaReserva nr = new NuevaReserva(Reservas.this);
+				NuevaReserva nr = new NuevaReserva(Reservas.this, cliente);
 				nr.setVisible(true);
 				Reservas.this.setVisible(false);
 			}

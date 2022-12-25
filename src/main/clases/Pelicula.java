@@ -24,6 +24,13 @@ public class Pelicula {
 		this.id=id;
 
 	}
+	
+	public Pelicula(String genero, String nombre, int duracion) {
+		super();
+		this.genero = genero;
+		this.nombre = nombre;
+		this.duracion = duracion;
+	}
 
 	public String getGenero() {
 		return genero;

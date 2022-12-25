@@ -32,6 +32,8 @@ import javax.swing.JComboBox;
 import javax.swing.JCheckBox;
 import java.awt.Color;
 import javax.swing.JTextArea;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
 
@@ -66,41 +68,50 @@ public class Login extends JFrame {
 	public Login() {
 		
 		getContentPane().setLayout(null);
+		setBounds(150, 50, 850, 600);
 		
 		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setBounds(225, 97, 300, 121);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel.setBounds(394, 51, 103, 56);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nombre de Usuario");
-		lblNewLabel_1.setBounds(96, 230, 187, 63);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_1.setBounds(96, 127, 187, 63);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Contrase\u00F1a");
-		lblNewLabel_2.setBounds(96, 330, 187, 56);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_2.setBounds(96, 220, 187, 56);
 		getContentPane().add(lblNewLabel_2);
 		
 		textField = new JTextField();
-		textField.setBounds(278, 244, 287, 35);
+		textField.setBounds(272, 141, 393, 35);
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(278, 330, 300, 26);
+		passwordField.setBounds(272, 235, 393, 35);
 		getContentPane().add(passwordField);
 		
 		JButton btnNewButton_1 = new JButton("Iniciar Sesi\u00F3n");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				comprobarLogin(textField.getText(), passwordField.getText());
 				if (loginCorrecto) {
 				 JOptionPane.showMessageDialog(contentPane, "Login correcto");
-				  if (usuarioIntroducido instanceof Administrador) { //cuando el usuario sea administrador que vaya a esa ventana
+				  if (usuarioIntroducido instanceof Administrador) { 
+					  //cuando el usuario sea administrador que vaya a esa ventana
 					General g = new General((Administrador) usuarioIntroducido);
 					g.setVisible(true);
 
-				  } else {//cuando el usuario sea clientes que vaya a otra ventana
+				  } else {
+					  //cuando el usuario sea clientes que vaya a otra ventana
 					Reservas r = new Reservas((Cliente) usuarioIntroducido);
 					r.setVisible(true);
+					System.out.println(usuarioIntroducido);
 				  }
 				Login.this.setVisible(false);
 				Login.this.dispose();
@@ -112,15 +123,11 @@ public class Login extends JFrame {
 		
 		
 	
-		btnNewButton_1.setBounds(272, 416, 177, 39);
+		btnNewButton_1.setBounds(272, 309, 177, 39);
 		getContentPane().add(btnNewButton_1);
 		
-
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(215, 423, 5, 22);
-		getContentPane().add(textArea);
-		
 		JButton btnNewButton = new JButton("Crear Cliente");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CrearCliente Cc = new CrearCliente(Login.this);
@@ -128,10 +135,11 @@ public class Login extends JFrame {
 				Login.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(502, 409, 177, 46);
+		btnNewButton.setBounds(488, 305, 177, 46);
 		getContentPane().add(btnNewButton);
 		
 		JButton btnCrearAdministrador = new JButton("Crear Administrador");
+		btnCrearAdministrador.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnCrearAdministrador.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				CrearAdministrador Ca = new CrearAdministrador(Login.this);
@@ -139,7 +147,7 @@ public class Login extends JFrame {
 				Login.this.setVisible(false);
 			}
 		});
-		btnCrearAdministrador.setBounds(502, 466, 177, 46);
+		btnCrearAdministrador.setBounds(382, 384, 177, 46);
 		getContentPane().add(btnCrearAdministrador);
 	}
 		

@@ -1,28 +1,44 @@
 package main.clases;
 
+import java.util.List;
+
 public class Reserva {
-	private int numeroEntradas;
+	
+	private List<String> asientos;
 	private String hora;
 	private Pelicula peli;
+	private Cliente cliente;
 
-	public Reserva(int numeroEntradas) {
+	
+	public Reserva(List<String> asientos, String hora, Pelicula peli, Cliente cliente) {
 		super();
-		this.numeroEntradas = numeroEntradas;
-	}
-
-	public Reserva(int numeroEntradas, String hora, Pelicula peli) {
-		super();
-		this.numeroEntradas = numeroEntradas;
+		this.asientos = asientos;
 		this.hora = hora;
 		this.peli = peli;
+		this.cliente = cliente;
+	}
+	
+
+	public Reserva(Pelicula pelicula, String hora, Cliente cliente) {
+		this.peli = pelicula;
+		this.hora = hora;
+		this.cliente = cliente;
+	}
+	
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public int getNumeroEntradas() {
-		return numeroEntradas;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
-	public void setNumeroEntradas(int numeroEntradas) {
-		this.numeroEntradas = numeroEntradas;
+	public List<String> getAsientos() {
+		return asientos;
+	}
+
+	public void setAsientos(List<String> asientos) {
+		this.asientos = asientos;
 	}
 
 	public Pelicula getPeli() {
@@ -40,15 +56,11 @@ public class Reserva {
 	public void setHora(String hora) {
 		this.hora = hora;
 	}
+	
 
-	int precio = 10;
-
-	public int calcularCosteTotal() { 
-		int coste = 0;
-		coste = getNumeroEntradas() * precio;
-
-		return coste;
-
+	public int calcularCosteTotal(int precio) { 
+		
+		return precio * asientos.size();
 	}
 
 }

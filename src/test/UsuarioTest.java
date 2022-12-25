@@ -17,7 +17,6 @@ public class UsuarioTest {
 	private Usuario usuario3;
 	
 	@Before
-	
 	public void setUp() throws Exception{
 	
 		usuario1= new Usuario ("Pablo",19, "Derau", "Hola2");		
@@ -26,13 +25,11 @@ public class UsuarioTest {
 	}
 	
 	@Test
-	
 	public void getNombre() {
 		assertEquals("Pablo", usuario1.getNombre());
 	}
 	
 	@Test
-	
 	public void setNombre() {
 		
 		usuario1.setNombre("Juan");
@@ -41,7 +38,6 @@ public class UsuarioTest {
 	}
 	
 	@Test
-	
 	public void getEdad() {
 		int edad = usuario2.getEdad();
 		if (edad==20) {
@@ -50,8 +46,8 @@ public class UsuarioTest {
 			fail();
 		}
 	}
-	@Test
 	
+	@Test
 	public void SetEdad() {
 		boolean comprobacion = false;
 		usuario1.setEdad(4);
