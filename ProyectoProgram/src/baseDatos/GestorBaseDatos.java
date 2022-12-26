@@ -4,8 +4,10 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -85,7 +87,7 @@ public class GestorBaseDatos {
 			e2.printStackTrace();
 		}
 	}
-<<<<<<< HEAD
+
 
 	public static ArrayList<Pelicula> leerPeliculas() {
 
@@ -166,11 +168,7 @@ public class GestorBaseDatos {
 
 	}
 
-=======
-	
-	
-	
->>>>>>> branch 'master' of https://github.com/Derau21/ProyectoProgram.git
+
 //	public void insertar(String nombre, String pelicula, int numeroEntradas, int importe) {
 //		String sql="insert into reservas(nombre, pelicula, numeroEntradas, importe) values (?, ?, ?, ?)";
 //		try (Connection conn=this.conectar(); PreparedStatement pstmt= conn.prepareStatement(sql)){
