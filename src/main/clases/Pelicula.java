@@ -5,7 +5,7 @@ public class Pelicula {
 	private String genero;
 	private String nombre;
 	private int duracion;
-	private int id;
+
 
 	public Pelicula() {
 		super();
@@ -16,22 +16,15 @@ public class Pelicula {
 		this.nombre = nombre;
 	}
 
-	public Pelicula(String genero, String nombre, int duracion, int id) {
-		super();
-		this.genero = genero;
-		this.nombre = nombre;
-		this.duracion = duracion;
-		this.id=id;
-
-	}
-	
 	public Pelicula(String genero, String nombre, int duracion) {
 		super();
 		this.genero = genero;
 		this.nombre = nombre;
 		this.duracion = duracion;
-	}
+		
 
+	}
+	
 	public String getGenero() {
 		return genero;
 	}
@@ -57,17 +50,8 @@ public class Pelicula {
 	}
 	
 	
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	@Override
 	public String toString() {
-		return  "Pelicula=  "+ genero + ";" + nombre + ";" + duracion +  ";" + id;
-	}
+		return  nombre;
+	} 
 }
