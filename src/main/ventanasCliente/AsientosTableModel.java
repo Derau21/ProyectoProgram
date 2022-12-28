@@ -4,9 +4,7 @@ import javax.swing.table.DefaultTableModel;
 
 import main.constantes.Constantes;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class AsientosTableModel extends DefaultTableModel {
@@ -18,8 +16,8 @@ public class AsientosTableModel extends DefaultTableModel {
 
 	private String[][] sala = null;
 
-	private final List<String> alfabeto = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
-			"n", "Ã±", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+	private final List<String> alfabeto = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",
+			"N", "Ñ", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
 
 	public AsientosTableModel(int filas, int columnas, List<String> asientosOcupados) {
 		sala = new String[filas][columnas];

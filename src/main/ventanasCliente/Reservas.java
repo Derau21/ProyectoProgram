@@ -1,22 +1,21 @@
 package main.ventanasCliente;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import main.clases.Cliente;
-import main.clases.Usuario;
-import main.ventanaInicial.Login;
-import main.ventanasAdministrador.AnyadirPeliculas;
-import main.ventanasAdministrador.General;
 
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class Reservas extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	private JPanel contentPane;
 	

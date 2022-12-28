@@ -1,11 +1,9 @@
 package main.ventanaInicial;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import main.clases.Administrador;
 import main.clases.Cliente;
@@ -13,7 +11,6 @@ import main.clases.Usuario;
 import main.baseDatos.GestorBaseDatos;
 import main.utilidades.Utilidades;
 import main.ventanasAdministrador.CrearAdministrador;
-import main.ventanasAdministrador.EliminarPelicula;
 import main.ventanasAdministrador.General;
 import main.ventanasCliente.CrearCliente;
 import main.ventanasCliente.Reservas;
@@ -24,19 +21,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.logging.Level;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
-import javax.swing.JComboBox;
-import javax.swing.JCheckBox;
-import java.awt.Color;
-import javax.swing.JTextArea;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
 public class Login extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;

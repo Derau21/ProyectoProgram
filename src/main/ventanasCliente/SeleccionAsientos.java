@@ -2,7 +2,6 @@ package main.ventanasCliente;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,10 +10,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableModel;
-
 import main.baseDatos.GestorBaseDatos;
 import main.clases.Reserva;
 import main.constantes.Constantes;
@@ -23,10 +18,13 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import java.awt.Component;
 
 public class SeleccionAsientos extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JLabel asientosSeleccionadosLabel;
 	private JLabel precioLabel;
