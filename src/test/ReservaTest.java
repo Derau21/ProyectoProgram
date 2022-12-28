@@ -1,9 +1,6 @@
 package test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,7 +19,7 @@ public class ReservaTest {
 	@Before
 	public void setUp() throws Exception{
 		
-		pelicula1= new Pelicula ("accion", "Piratas del Caribe", 2,1);
+		pelicula1= new Pelicula ("accion", "Piratas del Caribe", 2);
 		List<String> asientos = Arrays.asList("1A", "1B");
 		reserva1 = new Reserva(asientos, "16:30", pelicula1, new Cliente());
 		

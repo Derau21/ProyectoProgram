@@ -19,9 +19,9 @@ public class PeliculaTest {
 	@Before
 	public void setUp() throws Exception{
 	
-		pelicula1= new Pelicula("Accion", "Piratas Del Caribe", 2, 1);		
-		pelicula2= new Pelicula("Ficcion", "Stars Wars", 3, 2);		
-		pelicula3= new Pelicula("Terror", "The Black Phone", 2, 3);		
+		pelicula1= new Pelicula("Accion", "Piratas Del Caribe", 2);		
+		pelicula2= new Pelicula("Ficcion", "Stars Wars", 3);		
+		pelicula3= new Pelicula("Terror", "The Black Phone", 2);		
 	}
 	
 	@Test	

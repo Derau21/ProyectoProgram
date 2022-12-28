@@ -3,13 +3,12 @@ package main.clases;
 import java.util.List;
 
 public class Reserva {
-	
+
 	private List<String> asientos;
 	private String hora;
 	private Pelicula peli;
 	private Cliente cliente;
 
-	
 	public Reserva(List<String> asientos, String hora, Pelicula peli, Cliente cliente) {
 		super();
 		this.asientos = asientos;
@@ -17,14 +16,13 @@ public class Reserva {
 		this.peli = peli;
 		this.cliente = cliente;
 	}
-	
 
 	public Reserva(Pelicula pelicula, String hora, Cliente cliente) {
 		this.peli = pelicula;
 		this.hora = hora;
 		this.cliente = cliente;
 	}
-	
+
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -56,10 +54,9 @@ public class Reserva {
 	public void setHora(String hora) {
 		this.hora = hora;
 	}
-	
 
-	public int calcularCosteTotal(int precio) { 
-		
+	public int calcularCosteTotal(int precio) {
+
 		return precio * asientos.size();
 	}
 

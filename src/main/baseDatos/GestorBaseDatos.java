@@ -1,6 +1,5 @@
 package main.baseDatos;
 
-import java.io.PipedWriter;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;

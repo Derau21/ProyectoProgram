@@ -4,8 +4,6 @@ public class Sala {
 
 	private int numeroSala;
 	private int numeroAsientos;
-	
-	
 
 	public Sala(int numeroSala, int numeroAsientos) {
 		super();
