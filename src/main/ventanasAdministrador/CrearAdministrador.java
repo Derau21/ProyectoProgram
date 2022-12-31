@@ -52,22 +52,22 @@ public class CrearAdministrador extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Crear Administrador");
-		lblNewLabel.setBounds(291, 78, 126, 17);
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel.setBounds(291, 78, 192, 38);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		contentPane.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Username");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_1.setBounds(111, 154, 131, 38);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Contrase\u00F1a");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblNewLabel_2.setBounds(111, 212, 78, 38);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		lblNewLabel_2.setBounds(111, 212, 110, 38);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("DNI");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		lblNewLabel_3.setBounds(111, 259, 110, 38);
 		contentPane.add(lblNewLabel_3);
 
@@ -86,6 +86,7 @@ public class CrearAdministrador extends JFrame {
 		contentPane.add(passwordField);
 
 		JButton btnNewButton = new JButton("CREAR");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usuarioIntroducido = textField.getText();
@@ -116,6 +117,18 @@ public class CrearAdministrador extends JFrame {
 	
 		btnNewButton.setBounds(262, 318, 227, 55);
 		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("ATRAS");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				padre.setVisible(true);
+				CrearAdministrador.this.setVisible(false);
+				CrearAdministrador.this.dispose();
+			}
+		});
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnNewButton_1.setBounds(650, 346, 139, 48);
+		contentPane.add(btnNewButton_1);
 	}
 }
 
