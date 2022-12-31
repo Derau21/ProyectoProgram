@@ -40,7 +40,7 @@ public class DetallesReserva extends JFrame {
 		
 		JLabel lblNombrePelicula = new JLabel("Felicidades, asistiras a " + reserva.getPeli() );
 		lblNombrePelicula.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNombrePelicula.setBounds(263, 98, 240, 106);
+		lblNombrePelicula.setBounds(181, 98, 463, 135);
 		contentPane.add(lblNombrePelicula);
 		
 		String asientosReservados = reserva.getAsientos().stream().collect(Collectors.joining(", "));
