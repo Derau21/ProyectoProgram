@@ -12,11 +12,13 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextField;
 
 public class ModificarHorarios extends JFrame {
 
 	private JPanel contentPane;
 	private General padre;
+	private JTextField textField;
 
 	
 	public ModificarHorarios(General padre) {
@@ -59,8 +61,13 @@ public class ModificarHorarios extends JFrame {
 		contentPane.add(scrollPane);
 		
 		JLabel lblNewLabel_2 = new JLabel("Nuevo horario:");
-		lblNewLabel_2.setBounds(36, 332, 145, 29);
+		lblNewLabel_2.setBounds(36, 332, 80, 29);
 		contentPane.add(lblNewLabel_2);
+		
+		textField = new JTextField();
+		textField.setBounds(128, 332, 130, 29);
+		contentPane.add(textField);
+		textField.setColumns(10);
 		
 		
 
