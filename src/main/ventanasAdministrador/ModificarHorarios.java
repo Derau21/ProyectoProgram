@@ -1,3 +1,4 @@
+
 package main.ventanasAdministrador;
 
 import java.awt.Font;
@@ -65,3 +66,4 @@ public class ModificarHorarios extends JFrame {
 	}
 
 }
+
