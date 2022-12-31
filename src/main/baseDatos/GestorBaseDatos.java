@@ -131,12 +131,12 @@ public class GestorBaseDatos {
 
 			try (Statement s = conn.createStatement()) {
 
-				try (ResultSet rs = s.executeQuery("SELECT genero, nombrePelicula, duracion FROM PELICULA")) {
+				try (ResultSet rs = s.executeQuery("SELECT genero, nombre, duracion FROM PELICULA")) {
 
 					while (rs.next()) {
 
 						String genero = rs.getString("genero");
-						String nombre = rs.getString("nombrePelicula");
+						String nombre = rs.getString("nombre");
 						int duracion = rs.getInt("duracion");
 
 						Pelicula p = new Pelicula(genero, nombre, duracion);
@@ -206,14 +206,14 @@ public class GestorBaseDatos {
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
 
 			try (PreparedStatement ps = conn.prepareStatement(
-					"SELECT genero, nombrePelicula, duracion FROM PELICULA WHERE nombrePelicula = ?")) {
+					"SELECT genero, nombre, duracion FROM PELICULA WHERE nombre = ?")) {
 				ps.setString(1, nombrePelicula);
 
 				ResultSet rs = ps.executeQuery();
 
 				if (rs.next()) {
 					String genero = rs.getString("genero");
-					String nombre = rs.getString("nombrePelicula");
+					String nombre = rs.getString("nombre");
 					int duracion = rs.getInt("duracion");
 
 					pelicula = new Pelicula(genero, nombre, duracion);
@@ -272,7 +272,7 @@ public class GestorBaseDatos {
 
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
 
-			try (PreparedStatement ps = conn.prepareStatement("SELECT asientos FROM reservas WHERE hora = ? AND nombrePelicula = ?")) {
+			try (PreparedStatement ps = conn.prepareStatement("SELECT asientos FROM reservas WHERE hora = ? AND nombre = ?")) {
 				ps.setString(1, horarioPelicula);
 				ps.setString(2, nombrePelicula);
 
