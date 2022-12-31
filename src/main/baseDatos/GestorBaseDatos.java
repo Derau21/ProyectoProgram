@@ -272,7 +272,7 @@ public class GestorBaseDatos {
 
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
 
-			try (PreparedStatement ps = conn.prepareStatement("SELECT asientos FROM reservas WHERE hora = ? AND nombre = ?")) {
+			try (PreparedStatement ps = conn.prepareStatement("SELECT asientos FROM reservas WHERE hora = ? AND nombrePelicula = ?")) {
 				ps.setString(1, horarioPelicula);
 				ps.setString(2, nombrePelicula);
 
