@@ -1,18 +1,16 @@
 package main.clases;
 
-import java.util.Iterator;
-
 public class Usuario {
 
 	public String nombre;
 	public int edad;
 	public String username;
 	public String contrasenya;
-	
+
 	public Usuario() {
-		
+
 	}
-	
+
 	public Usuario(String nombre, int edad, String username, String contrasenya) {
 		super();
 		this.nombre = nombre;
@@ -23,7 +21,7 @@ public class Usuario {
 
 	public Usuario(String username, String contrasenya) {
 		this.username = username;
-		this.contrasenya= contrasenya;
+		this.contrasenya = contrasenya;
 	}
 
 	public String getNombre() {
@@ -60,12 +58,8 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", edad=" + edad + ", username=" + username
-				+ ", contrasenya=" + contrasenya + "]";
+		return "Usuario [nombre=" + nombre + ", edad=" + edad + ", username=" + username + ", contrasenya="
+				+ contrasenya + "]";
 	}
-	
-	
 
-	
-	
 }

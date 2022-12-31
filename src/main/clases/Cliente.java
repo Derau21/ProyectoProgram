@@ -1,14 +1,14 @@
 package main.clases;
 
-public class Cliente extends Usuario{
-	
+public class Cliente extends Usuario {
+
 	public Cliente() {
 		super();
 	}
-	
+
 	public Cliente(String nombre, int edad, String username, String contrasenya) {
 		super(nombre, edad, username, contrasenya);
-		
+
 	}
 
 	public Cliente(String username, String contrasenya) {
@@ -22,8 +22,5 @@ public class Cliente extends Usuario{
 				+ getUsername() + ", getContrasenya()=" + getContrasenya() + ", toString()=" + super.toString()
 				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
-
-	
-
 
 }

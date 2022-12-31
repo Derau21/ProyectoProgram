@@ -24,6 +24,10 @@ import javax.swing.JScrollPane;
 
 public class NuevaReserva extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private Reservas padre;
 	private JList<Pelicula> list;

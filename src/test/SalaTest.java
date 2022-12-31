@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import main.clases.Sala;
-import main.clases.Usuario;
 
 public class SalaTest {
 	

@@ -1,7 +1,5 @@
 package main.ventanasAdministrador;
 
-import java.awt.EventQueue;
-import java.sql.Statement;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,8 +8,6 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JProgressBar;
-import javax.swing.JFormattedTextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +15,7 @@ import java.awt.event.ActionEvent;
 
 public class AnyadirPeliculas extends JFrame {
 	
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private General padre;
 	private JTextField textField_1;

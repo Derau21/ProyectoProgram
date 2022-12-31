@@ -1,6 +1,5 @@
 package main.ventanasAdministrador;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,11 +8,11 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JList;
 import javax.swing.JButton;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 
 public class EliminarPelicula extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private General padre;
 

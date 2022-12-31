@@ -6,7 +6,6 @@ public class Pelicula {
 	private String nombre;
 	private int duracion;
 
-
 	public Pelicula() {
 		super();
 	}
@@ -21,10 +20,9 @@ public class Pelicula {
 		this.genero = genero;
 		this.nombre = nombre;
 		this.duracion = duracion;
-		
 
 	}
-	
+
 	public String getGenero() {
 		return genero;
 	}
@@ -48,10 +46,9 @@ public class Pelicula {
 	public void setDuracion(int duracion) {
 		this.duracion = duracion;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return  nombre;
-	} 
+		return nombre;
+	}
 }

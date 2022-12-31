@@ -1,7 +1,5 @@
 package main.ventanasCliente;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,12 +9,15 @@ import java.awt.event.ActionEvent;
 
 public class VerReserva extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private Reservas padre;
 
-	
 	public VerReserva(Reservas padre) {
-		this.padre=padre;
+		this.padre = padre;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 630, 496);
 		contentPane = new JPanel();
@@ -24,7 +25,7 @@ public class VerReserva extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JButton btnNewButton = new JButton("Detalles");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -21,7 +21,7 @@ public class UsuarioTest {
 	
 		usuario1= new Usuario ("Pablo",19, "Derau", "Hola2");		
 		usuario2= new Usuario ("Alex",20, "Calde", "Bocata3");	
-		usuario2= new Usuario ("Bastiaan",20, "Basti", "Deusto1");
+		usuario3= new Usuario ("Bastiaan",20, "Basti", "Deusto1");
 	}
 	
 	@Test
@@ -50,8 +50,8 @@ public class UsuarioTest {
 	@Test
 	public void SetEdad() {
 		boolean comprobacion = false;
-		usuario1.setEdad(4);
-		int edad = usuario1.getEdad();
+		usuario3.setEdad(4);
+		int edad = usuario3.getEdad();
 		
 		if (edad==4) {
 			comprobacion=true;
