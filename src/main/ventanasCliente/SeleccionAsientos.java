@@ -13,6 +13,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import main.baseDatos.GestorBaseDatos;
 import main.clases.Reserva;
 import main.constantes.Constantes;
+import main.ventanaInicial.Login;
+import main.ventanasAdministrador.CrearAdministrador;
 
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -103,6 +105,9 @@ public class SeleccionAsientos extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GestorBaseDatos.insertarReserva(reserva);
+				DetallesReserva dr = new DetallesReserva(SeleccionAsientos.this, reserva);
+				dr.setVisible(true);
+				SeleccionAsientos.this.setVisible(false);
 			}
 		});
 		btnNewButton.setBounds(295, 380, 200, 70);
@@ -156,7 +161,7 @@ public class SeleccionAsientos extends JFrame {
 			// convierte una lista en un string separado por comas
 			String asientosSeleccionados = butacasSeleccionadas.stream().collect(Collectors.joining(", "));
 			asientosSeleccionadosLabel.setText("Asientos seleccionados: " + asientosSeleccionados);
-			precioLabel.setText("Precio: " + reserva.calcularCosteTotal(precioEntrada) + "€");
+			precioLabel.setText("Precio: " + reserva.calcularCosteTotal(Constantes.PRECIOENTRADA) + "€");
 		} else {
 
 			reserva.setAsientos(null);

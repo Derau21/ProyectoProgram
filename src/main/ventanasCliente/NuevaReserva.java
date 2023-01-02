@@ -29,11 +29,12 @@ public class NuevaReserva extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private Reservas padre;
+	private Menu padre;
 	private JList<Pelicula> list;
 	private Cliente cliente;
 
-	public NuevaReserva(Reservas padre, Cliente cliente) {
+public NuevaReserva(Menu padre, Cliente cliente) {
+
 		this.padre = padre;
 		this.cliente = cliente;
 

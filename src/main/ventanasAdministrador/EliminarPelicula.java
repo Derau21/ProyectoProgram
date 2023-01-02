@@ -9,6 +9,8 @@ import java.awt.Font;
 import javax.swing.JList;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class EliminarPelicula extends JFrame {
 
@@ -44,6 +46,13 @@ public class EliminarPelicula extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JButton btnAtras = new JButton("ATRAS");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				padre.setVisible(true);
+				EliminarPelicula.this.setVisible(false);
+				EliminarPelicula.this.dispose();
+			}
+		});
 		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnAtras.setBounds(518, 392, 118, 39);
 		contentPane.add(btnAtras);

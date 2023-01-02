@@ -10,7 +10,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class Reservas extends JFrame {
+public class Menu extends JFrame {
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class Reservas extends JFrame {
 	
 	private Cliente cliente;
 	
-	public Reservas(Cliente  cliente) {
+	public Menu(Cliente  cliente) {
 		
 		this.cliente = cliente;
 		
@@ -36,9 +36,9 @@ public class Reservas extends JFrame {
 		JButton btnNuevaReserva = new JButton("Nueva Reserva");
 		btnNuevaReserva.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				NuevaReserva nr = new NuevaReserva(Reservas.this, cliente);
+				NuevaReserva nr = new NuevaReserva(Menu.this, cliente);
 				nr.setVisible(true);
-				Reservas.this.setVisible(false);
+				Menu.this.setVisible(false);
 			}
 		});
 		btnNuevaReserva.setBounds(30, 58, 171, 59);
@@ -47,9 +47,9 @@ public class Reservas extends JFrame {
 		JButton btnVerReservas = new JButton("Ver Reservas");
 		btnVerReservas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VerReserva vr = new VerReserva(Reservas.this);
+				VerReservas vr = new VerReservas(Menu.this, cliente);
 				vr.setVisible(true);
-				Reservas.this.setVisible(false);
+				Menu.this.setVisible(false);
 			}
 		});
 		btnVerReservas.setBounds(30, 159, 171, 59);

@@ -13,7 +13,7 @@ import main.utilidades.Utilidades;
 import main.ventanasAdministrador.CrearAdministrador;
 import main.ventanasAdministrador.General;
 import main.ventanasCliente.CrearCliente;
-import main.ventanasCliente.Reservas;
+import main.ventanasCliente.Menu;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -104,7 +104,7 @@ public class Login extends JFrame {
 
 					} else {
 						// cuando el usuario sea clientes que vaya a otra ventana
-						Reservas r = new Reservas((Cliente) usuarioIntroducido);
+						Menu r = new Menu((Cliente) usuarioIntroducido);
 						r.setVisible(true);
 						System.out.println(usuarioIntroducido);
 					}

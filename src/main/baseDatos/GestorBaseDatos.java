@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+import main.clases.Cliente;
 import main.clases.Pelicula;
 import main.clases.Reserva;
 
@@ -131,12 +132,12 @@ public class GestorBaseDatos {
 
 			try (Statement s = conn.createStatement()) {
 
-				try (ResultSet rs = s.executeQuery("SELECT genero, nombrePelicula, duracion FROM PELICULA")) {
+				try (ResultSet rs = s.executeQuery("SELECT genero, nombre, duracion FROM PELICULA")) {
 
 					while (rs.next()) {
 
 						String genero = rs.getString("genero");
-						String nombre = rs.getString("nombrePelicula");
+						String nombre = rs.getString("nombre");
 						int duracion = rs.getInt("duracion");
 
 						Pelicula p = new Pelicula(genero, nombre, duracion);
@@ -206,14 +207,14 @@ public class GestorBaseDatos {
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
 
 			try (PreparedStatement ps = conn.prepareStatement(
-					"SELECT genero, nombrePelicula, duracion FROM PELICULA WHERE nombrePelicula = ?")) {
+					"SELECT genero, nombre, duracion FROM PELICULA WHERE nombre = ?")) {
 				ps.setString(1, nombrePelicula);
 
 				ResultSet rs = ps.executeQuery();
 
 				if (rs.next()) {
 					String genero = rs.getString("genero");
-					String nombre = rs.getString("nombrePelicula");
+					String nombre = rs.getString("nombre");
 					int duracion = rs.getInt("duracion");
 
 					pelicula = new Pelicula(genero, nombre, duracion);
@@ -298,6 +299,44 @@ public class GestorBaseDatos {
 		}
 
 		return asientosOcupados;
+	}
+	
+	public static List<Reserva> leerReservasDeCliente(Cliente cliente){
+		List<Reserva> reservas = new ArrayList<Reserva>();
+		
+		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
+
+			try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM reservas WHERE nombreUsuario = ?")) {
+				ps.setString(1, cliente.username);
+				
+
+				ResultSet rs = ps.executeQuery();
+
+				while (rs.next()) {
+					String asientos = rs.getString("asientos");
+					List<String> asientosList = Arrays.asList(asientos.split(","));
+					
+					String usuario = rs.getString("nombreUsuario");
+					String peli = rs.getString("nombrePelicula");
+					Pelicula pelicula = new Pelicula(peli);
+					String hora = rs.getString("hora");
+					
+					Reserva reserva = new Reserva(asientosList, hora, pelicula, cliente);
+					
+					reservas.add(reserva);				
+				}
+
+			} catch (SQLException e1) {
+				logger.log(Level.WARNING, "El statement no se ha creado bien", e1);
+				e1.printStackTrace();
+			}
+			conn.close();// preguntar si se puede cerrar asi
+		} catch(SQLException e2) {
+			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
+			e2.printStackTrace();
+		}
+		
+		return reservas;
 	}
 
 	public void setLogger(Logger logger) {

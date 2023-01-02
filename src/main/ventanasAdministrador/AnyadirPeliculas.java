@@ -107,6 +107,10 @@ public class AnyadirPeliculas extends JFrame {
 		JButton btnAtras = new JButton("ATRAS");
 		btnAtras.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				padre.setVisible(true);
+				AnyadirPeliculas.this.setVisible(false);
+				AnyadirPeliculas.this.dispose();
+
 			}
 		});
 		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 17));
