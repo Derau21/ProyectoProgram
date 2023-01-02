@@ -47,9 +47,7 @@ public class EliminarPelicula extends JFrame {
 		lblNewLabel.setBounds(191, -1, 282, 108);
 		contentPane.add(lblNewLabel);
 		
-		list = new JList();
-		list.setBounds(36, 118, 500, 185);
-		contentPane.add(list);
+		
 		
 		JLabel lblNewLabel_1 = new JLabel("Selecciona la pelicula que quieres eliminar:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 13));
@@ -71,7 +69,7 @@ public class EliminarPelicula extends JFrame {
 		JButton btnEliminar = new JButton("ELIMINAR\r\n");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pelicula peliculaSeleccionada = (Pelicula) list.getSelectedValue();
+				int peliculaSeleccionada = (Integer) list.getSelectedIndex();
 						peliculas.remove(peliculaSeleccionada);	
 				defaulListModel.remove(peliculaSeleccionada);
 				GestorBaseDatos.cargarTablaPeliculas();
@@ -82,6 +80,10 @@ public class EliminarPelicula extends JFrame {
 		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnEliminar.setBounds(156, 326, 229, 64);
 		contentPane.add(btnEliminar);
+		
+		list = new JList<Pelicula>();
+		
+		cargarJlist();
 		
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setBounds(36, 118, 500, 185);

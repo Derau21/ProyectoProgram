@@ -86,7 +86,7 @@ public class AnyadirPeliculas extends JFrame {
 				String genero = textField_2.getText();
 				int duracion = Integer.parseInt(textField.getText());
 				
-				Pelicula NuevaPelicula = new Pelicula(nombre, genero, duracion);
+				Pelicula NuevaPelicula = new Pelicula(genero, nombre, duracion);
 				
 				peliculas.add(NuevaPelicula);
 				
