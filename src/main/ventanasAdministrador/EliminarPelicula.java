@@ -4,12 +4,18 @@ package main.ventanasAdministrador;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import main.baseDatos.GestorBaseDatos;
+import main.clases.Pelicula;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JList;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class EliminarPelicula extends JFrame {
@@ -17,6 +23,11 @@ public class EliminarPelicula extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private General padre;
+	
+	private JList list;
+	private ArrayList <Pelicula> peliculas;
+	private DefaultListModel<Pelicula> defaulListModel;
+
 
 	
 	public EliminarPelicula(General padre) {
@@ -36,7 +47,7 @@ public class EliminarPelicula extends JFrame {
 		lblNewLabel.setBounds(191, -1, 282, 108);
 		contentPane.add(lblNewLabel);
 		
-		JList list = new JList();
+		list = new JList();
 		list.setBounds(36, 118, 500, 185);
 		contentPane.add(list);
 		
@@ -58,6 +69,16 @@ public class EliminarPelicula extends JFrame {
 		contentPane.add(btnAtras);
 		
 		JButton btnEliminar = new JButton("ELIMINAR\r\n");
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Pelicula peliculaSeleccionada = (Pelicula) list.getSelectedValue();
+						peliculas.remove(peliculaSeleccionada);	
+				defaulListModel.remove(peliculaSeleccionada);
+				GestorBaseDatos.cargarTablaPeliculas();
+
+
+			}
+		});
 		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnEliminar.setBounds(156, 326, 229, 64);
 		contentPane.add(btnEliminar);
@@ -65,7 +86,15 @@ public class EliminarPelicula extends JFrame {
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setBounds(36, 118, 500, 185);
 		contentPane.add(scrollPane);
-
 		
 	}
+		
+		public void cargarJlist(){
+			peliculas = GestorBaseDatos.leerPeliculas();
+			defaulListModel = new DefaultListModel<>(); 
+			for (Pelicula pelicula : peliculas) { 
+				defaulListModel.addElement(pelicula);
+			}
+			list.setModel(defaulListModel); 
+		}
 }

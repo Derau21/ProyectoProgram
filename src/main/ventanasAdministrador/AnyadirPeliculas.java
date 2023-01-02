@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -28,9 +29,7 @@ public class AnyadirPeliculas extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField;
-	private ArrayList<Pelicula> peli;
-	private DefaultListModel<Pelicula> model2;
-	private JList<Pelicula> list;
+
 	
 	
 	
@@ -81,6 +80,20 @@ public class AnyadirPeliculas extends JFrame {
 		JButton btnNewButton = new JButton("A\u00D1ADIR PELICULA");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				ArrayList <Pelicula> peliculas = GestorBaseDatos.leerPeliculas();
+				
+				String nombre = textField_1.getText();
+				String genero = textField_2.getText();
+				int duracion = Integer.parseInt(textField.getText());
+				
+				Pelicula NuevaPelicula = new Pelicula(nombre, genero, duracion);
+				
+				peliculas.add(NuevaPelicula);
+				
+				GestorBaseDatos.insertarPelicula(NuevaPelicula);
+				
+				JOptionPane.showMessageDialog(AnyadirPeliculas.this, "pelicula añadida con exito");
+
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
@@ -120,22 +133,4 @@ public class AnyadirPeliculas extends JFrame {
 		
 		
 	}
-	public void MostrarJList() {
-
-		this.peli = GestorBaseDatos.insertarPelicula(peli);
-		model2 = new DefaultListModel<Pelicula>();
-		for (Pelicula pelicula : peli) {
-			model2.addElement(pelicula);
-		}
-		list.setModel(model2);
-	}
-
-	public ArrayList<Pelicula> getPeli() {
-		return peli;
-	}
-
-	public void setPeli(ArrayList<Pelicula> peli) {
-		this.peli = peli;
-	}	
-	
 }
