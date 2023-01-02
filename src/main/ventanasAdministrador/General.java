@@ -27,7 +27,7 @@ public class General extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnAnyadirPelicula = new JButton("A?adir Pelicula");
+		JButton btnAnyadirPelicula = new JButton("Aniadir Pelicula");
 		btnAnyadirPelicula.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				AnyadirPeliculas ap = new AnyadirPeliculas(General.this);
@@ -61,7 +61,7 @@ public class General extends JFrame {
 		btnModificarHorarios.setBounds(57, 263, 176, 54);
 		contentPane.add(btnModificarHorarios);
 
-		JButton btnGestionEconomica = new JButton("Gestion Econ?mica");
+		JButton btnGestionEconomica = new JButton("Gestion Economica");
 		btnGestionEconomica.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				GestionEconomica ge = new GestionEconomica(General.this);

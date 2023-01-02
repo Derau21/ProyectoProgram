@@ -48,12 +48,17 @@ public class DetallesReserva extends JFrame {
 		
 		JLabel lblAsientos = new JLabel("Asientos: " + asientosReservados);
 		lblAsientos.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblAsientos.setBounds(87, 350, 172, 73);
+		lblAsientos.setBounds(74, 277, 387, 73);
 		contentPane.add(lblAsientos);
 		
 		JLabel lblPrecio = new JLabel("Precio: " + reserva.calcularCosteTotal(Constantes.PRECIOENTRADA) );
 		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblPrecio.setBounds(87, 238, 172, 73);
+		lblPrecio.setBounds(74, 384, 172, 73);
 		contentPane.add(lblPrecio);
+		
+		JLabel lblHora = new JLabel("Hora de comienzo: " +reserva.getHora());
+		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblHora.setBounds(74, 219, 328, 47);
+		contentPane.add(lblHora);
 	}
 }
