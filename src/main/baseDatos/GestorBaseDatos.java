@@ -62,7 +62,7 @@ public class GestorBaseDatos {
 	public static void createTableReservas() {
 		String sql = "Create table if not exists reservas (id int primary key, hora text not null, nombrePelicula int, nombreUsuario  not null, asientos text not null,  FOREIGN KEY (nombrePelicula) references pelicula (nombrePelicula))";
 		try (Connection conn = conectar(); Statement stmt = conn.createStatement()) {
-			// stmt.executeUpdate("DROP TABLE IF EXISTS reservas");
+			//stmt.executeUpdate("DROP TABLE IF EXISTS reservas");
 			stmt.execute(sql);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -72,7 +72,7 @@ public class GestorBaseDatos {
 	public static void createTablePelicula() {
 		String sql = "Create table if not exists pelicula (nombrePelicula text primary key, genero text not null, duracion int not null )";
 		try (Connection conn = conectar(); Statement stmt = conn.createStatement()) {
-			// stmt.executeUpdate("DROP TABLE IF EXISTS pelicula");
+			//stmt.executeUpdate("DROP TABLE IF EXISTS pelicula");
 			stmt.execute(sql);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -132,12 +132,12 @@ public class GestorBaseDatos {
 
 			try (Statement s = conn.createStatement()) {
 
-				try (ResultSet rs = s.executeQuery("SELECT genero, nombre, duracion FROM PELICULA")) {
+				try (ResultSet rs = s.executeQuery("SELECT genero, nombrePelicula, duracion FROM PELICULA")) {
 
 					while (rs.next()) {
 
 						String genero = rs.getString("genero");
-						String nombre = rs.getString("nombre");
+						String nombre = rs.getString("nombrePelicula");
 						int duracion = rs.getInt("duracion");
 
 						Pelicula p = new Pelicula(genero, nombre, duracion);
@@ -207,14 +207,14 @@ public class GestorBaseDatos {
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
 
 			try (PreparedStatement ps = conn.prepareStatement(
-					"SELECT genero, nombre, duracion FROM PELICULA WHERE nombre = ?")) {
+					"SELECT genero, nombrePelicula, duracion FROM PELICULA WHERE nombrePelicula = ?")) {
 				ps.setString(1, nombrePelicula);
 
 				ResultSet rs = ps.executeQuery();
 
 				if (rs.next()) {
 					String genero = rs.getString("genero");
-					String nombre = rs.getString("nombre");
+					String nombre = rs.getString("nombrePelicula");
 					int duracion = rs.getInt("duracion");
 
 					pelicula = new Pelicula(genero, nombre, duracion);
