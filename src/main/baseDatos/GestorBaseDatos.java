@@ -117,7 +117,8 @@ public class GestorBaseDatos {
 				logger.log(Level.WARNING, "El prepared statement no se ha creado bien", e1);
 				e1.printStackTrace();
 			}
-			conn.close();// preguntar si se puede cerrar asi
+			conn.close();
+			
 		} catch (SQLException e2) {
 			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
 			e2.printStackTrace();
@@ -151,7 +152,7 @@ public class GestorBaseDatos {
 				logger.log(Level.WARNING, "El statement no se ha creado bien", e1);
 				e1.printStackTrace();
 			}
-			conn.close();// preguntar si se puede cerrar asi
+			conn.close();
 		} catch (SQLException e2) {
 			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
 			e2.printStackTrace();
@@ -172,7 +173,7 @@ public class GestorBaseDatos {
 
 				try (ResultSet rs = s.executeQuery(
 						"SELECT genero, nombrePelicula, duracion FROM PELICULA WHERE genero = " + condicionGenero)) {
-					// preguntar si se puede hacer asi
+					
 					while (rs.next()) {
 
 						String genero = rs.getString("genero");
@@ -190,7 +191,7 @@ public class GestorBaseDatos {
 				logger.log(Level.WARNING, "El statement no se ha creado bien", e1);
 				e1.printStackTrace();
 			}
-			conn.close();// preguntar si se puede cerrar asi
+			conn.close();
 		} catch (SQLException e2) {
 			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
 			e2.printStackTrace();
@@ -224,7 +225,7 @@ public class GestorBaseDatos {
 				logger.log(Level.WARNING, "El statement no se ha creado bien", e1);
 				e1.printStackTrace();
 			}
-			conn.close();// preguntar si se puede cerrar asi
+			conn.close();
 		} catch (SQLException e2) {
 			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
 			e2.printStackTrace();
@@ -259,7 +260,7 @@ public class GestorBaseDatos {
 				logger.log(Level.WARNING, "El prepared statement no se ha creado bien", e1);
 				e1.printStackTrace();
 			}
-			conn.close();// preguntar si se puede cerrar asi
+			conn.close();
 		} catch (SQLException e2) {
 			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
 			e2.printStackTrace();
@@ -291,7 +292,7 @@ public class GestorBaseDatos {
 				logger.log(Level.WARNING, "El statement no se ha creado bien", e1);
 				e1.printStackTrace();
 			}
-			conn.close();// preguntar si se puede cerrar asi
+			conn.close();
 		} catch (SQLException e2) {
 			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
 			e2.printStackTrace();
@@ -330,13 +331,33 @@ public class GestorBaseDatos {
 				logger.log(Level.WARNING, "El statement no se ha creado bien", e1);
 				e1.printStackTrace();
 			}
-			conn.close();// preguntar si se puede cerrar asi
+			conn.close();
 		} catch(SQLException e2) {
 			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
 			e2.printStackTrace();
 		}
 		
 		return reservas;
+	}
+	
+	
+	
+	public void delete (String nombrePelicula) {
+		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
+
+			try (PreparedStatement ps = conn.prepareStatement("DELETE FROM pelicula WHERE nombrePelicula = ?")) {
+				ps.setString(1, nombrePelicula);
+				ps.executeUpdate();
+
+			} catch (SQLException e1) {
+				logger.log(Level.WARNING, "El prepared statement no se ha creado bien", e1);
+				e1.printStackTrace();
+			}
+			conn.close();
+		} catch (SQLException e2) {
+			logger.log(Level.WARNING, "La conexion no se ha creado correctamente", e2);
+			e2.printStackTrace();
+		}
 	}
 
 	public void setLogger(Logger logger) {
