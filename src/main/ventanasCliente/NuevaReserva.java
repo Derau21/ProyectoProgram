@@ -33,7 +33,7 @@ public class NuevaReserva extends JFrame {
 	private JList<Pelicula> list;
 	private Cliente cliente;
 
-	public NuevaReserva(Reservas padrel, Cliente cliente) {
+	public NuevaReserva(Reservas padre, Cliente cliente) {
 		this.padre = padre;
 		this.cliente = cliente;
 

@@ -5,13 +5,20 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JList;
+
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import main.baseDatos.GestorBaseDatos;
+import main.clases.Pelicula;
 
 public class AnyadirPeliculas extends JFrame {
 	
@@ -21,6 +28,9 @@ public class AnyadirPeliculas extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField;
+	private ArrayList<Pelicula> peli;
+	private DefaultListModel<Pelicula> model2;
+	private JList<Pelicula> list;
 	
 	
 	
@@ -34,8 +44,7 @@ public class AnyadirPeliculas extends JFrame {
 	 */
 	public AnyadirPeliculas(General padre) {
 		this.padre=padre;
-		
-		
+				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 464);
 		contentPane = new JPanel();
@@ -107,6 +116,22 @@ public class AnyadirPeliculas extends JFrame {
 		
 		
 	}
-	
+	public void MostrarJList() {
+
+		this.peli = GestorBaseDatos.insertarPelicula(peli);
+		model2 = new DefaultListModel<Pelicula>();
+		for (Pelicula pelicula : peli) {
+			model2.addElement(pelicula);
+		}
+		list.setModel(model2);
+	}
+
+	public ArrayList<Pelicula> getPeli() {
+		return peli;
+	}
+
+	public void setPeli(ArrayList<Pelicula> peli) {
+		this.peli = peli;
+	}	
 	
 }

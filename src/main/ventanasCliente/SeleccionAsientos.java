@@ -31,15 +31,17 @@ public class SeleccionAsientos extends JFrame {
 	private JTable table;
 	private JLabel pantallaLabel;
 	private JLabel lblNewLabel;
+	private NuevaReserva padre;
 
 	private List<String> asientosOcupados;
 
 	private Reserva reserva;
 
 	private final Integer precioEntrada = 10;
+	private JButton btnNewButton_1;
 
-	public SeleccionAsientos(NuevaReserva nuevaReserva, Reserva reserva) {
-
+	public SeleccionAsientos(NuevaReserva padre, Reserva reserva) {
+		this.padre= padre;
 		this.reserva = reserva;
 
 		asientosOcupados = GestorBaseDatos.leerAsientosOcupados(reserva.getPeli().getNombre(), reserva.getHora());
@@ -88,7 +90,7 @@ public class SeleccionAsientos extends JFrame {
 
 		asientosSeleccionadosLabel = new JLabel("Asientos seleccionados: ");
 		asientosSeleccionadosLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		asientosSeleccionadosLabel.setBounds(24, 310, 500, 70);
+		asientosSeleccionadosLabel.setBounds(23, 310, 500, 70);
 		contentPane.add(asientosSeleccionadosLabel);
 
 		precioLabel = new JLabel("Precio: ");
@@ -123,6 +125,17 @@ public class SeleccionAsientos extends JFrame {
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel.setBounds(252, 274, 290, 35);
 		contentPane.add(lblNewLabel);
+		
+		JButton btnAtrs = new JButton("Atr\u00E1s");
+		btnAtrs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				padre.setVisible(true);
+				SeleccionAsientos.this.setVisible(false);
+				SeleccionAsientos.this.dispose();
+			}
+		});
+		btnAtrs.setBounds(10, 481, 89, 23);
+		contentPane.add(btnAtrs);
 
 	}
 
