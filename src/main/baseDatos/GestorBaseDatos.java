@@ -342,7 +342,7 @@ public class GestorBaseDatos {
 	
 	
 	
-	public void delete (String nombrePelicula) {
+	public static void delete (String nombrePelicula) {
 		try (Connection conn = DriverManager.getConnection("jdbc:sqlite:BDProyecto.db")) {
 
 			try (PreparedStatement ps = conn.prepareStatement("DELETE FROM pelicula WHERE nombrePelicula = ?")) {

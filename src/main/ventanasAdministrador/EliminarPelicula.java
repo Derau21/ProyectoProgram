@@ -72,6 +72,10 @@ public class EliminarPelicula extends JFrame {
 				int peliculaSeleccionada = (Integer) list.getSelectedIndex();
 						peliculas.remove(peliculaSeleccionada);	
 				defaulListModel.remove(peliculaSeleccionada);
+				
+				String pelicula = (String) list.getSelectedValue();
+				GestorBaseDatos.delete(pelicula);
+				
 				GestorBaseDatos.cargarTablaPeliculas();
 
 
