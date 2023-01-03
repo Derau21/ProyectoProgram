@@ -43,7 +43,7 @@ public class GestorBaseDatos {
 		createTableReservas();
 
 		// Cargar Tabla
-		cargarTablaPeliculas();
+		//cargarTablaPeliculas();
 	}
 
 	public static void createNewDatabase(String fileName) {

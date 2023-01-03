@@ -11,6 +11,7 @@ import main.clases.Pelicula;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
@@ -69,16 +70,17 @@ public class EliminarPelicula extends JFrame {
 		JButton btnEliminar = new JButton("ELIMINAR\r\n");
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Pelicula pelicula = (Pelicula) list.getSelectedValue();
+				String nombrePelicula = pelicula.getNombre();
+				GestorBaseDatos.delete(nombrePelicula);
+				
 				int peliculaSeleccionada = (Integer) list.getSelectedIndex();
 						peliculas.remove(peliculaSeleccionada);	
 				defaulListModel.remove(peliculaSeleccionada);
 				
-				String pelicula = (String) list.getSelectedValue();
-				GestorBaseDatos.delete(pelicula);
+				//GestorBaseDatos.
+				JOptionPane.showMessageDialog(EliminarPelicula.this, "Pelicula eliminada con exito");
 				
-				GestorBaseDatos.cargarTablaPeliculas();
-
-
 			}
 		});
 		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 17));

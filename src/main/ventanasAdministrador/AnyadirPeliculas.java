@@ -92,7 +92,7 @@ public class AnyadirPeliculas extends JFrame {
 				
 				GestorBaseDatos.insertarPelicula(NuevaPelicula);
 				
-				JOptionPane.showMessageDialog(AnyadirPeliculas.this, "pelicula añadida con exito");
+				JOptionPane.showMessageDialog(AnyadirPeliculas.this, "Pelicula añadida con exito");
 
 			}
 		});
