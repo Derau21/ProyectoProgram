@@ -77,7 +77,7 @@ public class EliminarPelicula extends JFrame {
 				int peliculaSeleccionada = (Integer) list.getSelectedIndex();
 						peliculas.remove(peliculaSeleccionada);	
 				defaulListModel.remove(peliculaSeleccionada);
-				
+				 
 				//GestorBaseDatos.
 				JOptionPane.showMessageDialog(EliminarPelicula.this, "Pelicula eliminada con exito");
 				
