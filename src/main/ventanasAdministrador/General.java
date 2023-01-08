@@ -35,7 +35,7 @@ public class General extends JFrame {
 				General.this.setVisible(false);
 			}
 		});
-		btnAnyadirPelicula.setBounds(57, 98, 176, 54);
+		btnAnyadirPelicula.setBounds(57, 119, 176, 54);
 		contentPane.add(btnAnyadirPelicula);
 
 		JButton btnEliminarPelicula = new JButton("Eliminar Pelicula");
@@ -46,7 +46,7 @@ public class General extends JFrame {
 				General.this.setVisible(false);
 			}
 		});
-		btnEliminarPelicula.setBounds(57, 174, 176, 54);
+		btnEliminarPelicula.setBounds(57, 196, 176, 54);
 		contentPane.add(btnEliminarPelicula);
 
 		JButton btnModificarHorarios = new JButton("Modificar horarios");
@@ -58,18 +58,7 @@ public class General extends JFrame {
 
 			}
 		});
-		btnModificarHorarios.setBounds(57, 263, 176, 54);
+		btnModificarHorarios.setBounds(57, 283, 176, 54);
 		contentPane.add(btnModificarHorarios);
-
-		JButton btnGestionEconomica = new JButton("Gestion Economica");
-		btnGestionEconomica.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				GestionEconomica ge = new GestionEconomica(General.this);
-				ge.setVisible(true);
-				General.this.setVisible(false);
-			}
-		});
-		btnGestionEconomica.setBounds(57, 345, 176, 54);
-		contentPane.add(btnGestionEconomica);
 	}
 }

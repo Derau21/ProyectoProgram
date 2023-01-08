@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import main.clases.Cliente;
 import main.clases.Pelicula;
 import main.clases.Reserva;
+import main.utilidades.Utilidades;
 import main.baseDatos.GestorBaseDatos;
 
 import javax.swing.JFrame;
@@ -32,6 +33,12 @@ public class NuevaReserva extends JFrame {
 	private Menu padre;
 	private JList<Pelicula> list;
 	private Cliente cliente;
+	private String[] opciones;
+	
+	private JComboBox comboHorarios; 
+	private ArrayList <String>  horarios;
+	private DefaultComboBoxModel<String> comboBoxModel;
+
 
 public NuevaReserva(Menu padre, Cliente cliente) {
 
@@ -50,18 +57,20 @@ public NuevaReserva(Menu padre, Cliente cliente) {
 		lblSeleccioneHorario.setBounds(15, 228, 163, 25);
 		contentPane.add(lblSeleccioneHorario);
 
-		JComboBox horariosComboBox = new JComboBox();
-		horariosComboBox.setBounds(217, 230, 72, 26);
-		contentPane.add(horariosComboBox);
-		String[] opciones = { "16:30", "18:30", "20:30" };
-		horariosComboBox.setModel(new DefaultComboBoxModel(opciones));
+		comboHorarios = new JComboBox();
+		comboHorarios.setBounds(217, 230, 72, 26);
+		contentPane.add(comboHorarios);
+		
+		horarios = new ArrayList<String>();
+		
+		
 
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Pelicula peliculaSeleccionada = list.getSelectedValue();
 				if (peliculaSeleccionada != null) {
-					Reserva r = new Reserva(list.getSelectedValue(), (String) horariosComboBox.getSelectedItem(),
+					Reserva r = new Reserva(list.getSelectedValue(), (String) comboHorarios.getSelectedItem(),
 							cliente);
 					SeleccionAsientos seleccionAsientos = new SeleccionAsientos(NuevaReserva.this, r);
 					seleccionAsientos.setVisible(true);
@@ -109,6 +118,8 @@ public NuevaReserva(Menu padre, Cliente cliente) {
 		// cargamos el Jlist con datos utilizando el metodo
 		cargarJList(list);
 		list.setVisible(true);
+		
+		cargarHorarios();
 
 	}
 
@@ -129,4 +140,19 @@ public NuevaReserva(Menu padre, Cliente cliente) {
 		list.setModel(model);
 
 	}
+	
+	public void cargarHorarios() { 
+		horarios = Utilidades.leerHorarios();
+		comboBoxModel = new DefaultComboBoxModel<>();
+				
+		for (String string : horarios) {
+			comboBoxModel.addElement(string);
+
+		}
+		comboHorarios.setModel(comboBoxModel);
+		}
+			
+		
+
+	
 }

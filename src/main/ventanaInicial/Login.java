@@ -147,7 +147,7 @@ public class Login extends JFrame {
 	public void comprobarLogin(String username, String password) {
 		ArrayList<Usuario> usuarios = Utilidades.leerUsuarios();
 		for (Usuario usuario : usuarios) {
-			System.out.println(usuario);
+			//System.out.println(usuario);
 		}
 
 		loginCorrecto = false;

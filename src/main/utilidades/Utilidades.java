@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 
 import main.clases.Administrador;
@@ -86,9 +87,37 @@ public class Utilidades {
 		}
 		
 	}
-
 	
+	public static void escribirArrayEnFichero(ArrayList<String>horarios) {
+		File aFile = new File("horarios.txt");
+		  try {
+		    BufferedWriter bw = new BufferedWriter(new FileWriter(aFile));
+		    for (String string : horarios) {
+		    	bw.write(string);
+			      bw.newLine();
+			} 
+		      
+		    bw.close();
+		  } catch (IOException ex) {
+		    ex.printStackTrace();
+		  }
+		}
 
+	public static ArrayList<String> leerHorarios() {
+		File aFile = new File("horarios.txt");
+		ArrayList<String> horarios = new ArrayList<String>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(aFile));
+			String linea;
+			while ((linea = br.readLine()) != null) {
+				horarios.add(linea);
+			}
+			br.close();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		return horarios;
+	}
 
 
 

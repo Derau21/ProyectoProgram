@@ -36,10 +36,8 @@ public class DetallesReserva extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		
-		
-		JLabel lblNombrePelicula = new JLabel("Felicidades, asistiras a " + reserva.getPeli() );
-		lblNombrePelicula.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		JLabel lblNombrePelicula = new JLabel("¡Felicidades, asistiras a " + reserva.getPeli() + " !" );
+		lblNombrePelicula.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblNombrePelicula.setBounds(181, 98, 463, 135);
 		contentPane.add(lblNombrePelicula);
 		
@@ -47,17 +45,17 @@ public class DetallesReserva extends JFrame {
 		
 		
 		JLabel lblAsientos = new JLabel("Asientos: " + asientosReservados);
-		lblAsientos.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblAsientos.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblAsientos.setBounds(74, 277, 387, 73);
 		contentPane.add(lblAsientos);
 		
 		JLabel lblPrecio = new JLabel("Precio: " + reserva.calcularCosteTotal(Constantes.PRECIOENTRADA) );
-		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblPrecio.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblPrecio.setBounds(74, 384, 172, 73);
 		contentPane.add(lblPrecio);
 		
 		JLabel lblHora = new JLabel("Hora de comienzo: " +reserva.getHora());
-		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblHora.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		lblHora.setBounds(74, 219, 328, 47);
 		contentPane.add(lblHora);
 	}
