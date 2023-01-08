@@ -120,6 +120,7 @@ public NuevaReserva(Menu padre, Cliente cliente) {
 		list.setVisible(true);
 		
 		cargarHorarios();
+		
 
 	}
 
