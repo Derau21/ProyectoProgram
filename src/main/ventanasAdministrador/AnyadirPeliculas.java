@@ -97,7 +97,7 @@ public class AnyadirPeliculas extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnNewButton.setBounds(202, 300, 229, 64);
+		btnNewButton.setBounds(251, 297, 229, 64);
 		contentPane.add(btnNewButton);
 		
 		textField = new JTextField();
@@ -127,7 +127,7 @@ public class AnyadirPeliculas extends JFrame {
 			}
 		});
 		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnAtras.setBounds(541, 377, 118, 39);
+		btnAtras.setBounds(602, 427, 118, 39);
 		contentPane.add(btnAtras);
 		
 		

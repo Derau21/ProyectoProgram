@@ -15,6 +15,7 @@ import java.util.List;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
+import java.awt.Font;
 
 public class VerReservas extends JFrame {
 
@@ -53,7 +54,8 @@ public class VerReservas extends JFrame {
 		scrollPane.setBounds(198, 76, 404, 323);
 		contentPane.add(scrollPane);
 		
-		JButton btnAtrs = new JButton("Atr\u00E1s");
+		JButton btnAtrs = new JButton("ATR\u00C1S");
+		btnAtrs.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				padre.setVisible(true);
@@ -61,7 +63,7 @@ public class VerReservas extends JFrame {
 				VerReservas.this.dispose();
 			}
 		});
-		btnAtrs.setBounds(54, 436, 89, 23);
+		btnAtrs.setBounds(618, 450, 137, 47);
 		contentPane.add(btnAtrs);
 		
 		

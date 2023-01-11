@@ -120,7 +120,7 @@ public class ModificarHorarios extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnNewButton_1.setBounds(606, 496, 136, 42);
+		btnNewButton_1.setBounds(660, 493, 136, 42);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("AÑADIR\r\n");

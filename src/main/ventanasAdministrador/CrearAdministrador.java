@@ -123,7 +123,7 @@ public class CrearAdministrador extends JFrame {
 			}
 		});
 	
-		btnNewButton.setBounds(262, 318, 227, 55);
+		btnNewButton.setBounds(268, 346, 227, 55);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("ATRAS");
@@ -135,7 +135,7 @@ public class CrearAdministrador extends JFrame {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnNewButton_1.setBounds(650, 346, 139, 48);
+		btnNewButton_1.setBounds(638, 432, 139, 48);
 		contentPane.add(btnNewButton_1);
 	}
 }

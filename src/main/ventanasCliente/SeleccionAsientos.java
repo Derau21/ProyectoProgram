@@ -131,7 +131,8 @@ public class SeleccionAsientos extends JFrame {
 		lblNewLabel.setBounds(252, 274, 290, 35);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnAtrs = new JButton("Atr\u00E1s");
+		JButton btnAtrs = new JButton("ATR\u00C1S");
+		btnAtrs.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnAtrs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				padre.setVisible(true);
@@ -139,7 +140,7 @@ public class SeleccionAsientos extends JFrame {
 				SeleccionAsientos.this.dispose();
 			}
 		});
-		btnAtrs.setBounds(10, 481, 89, 23);
+		btnAtrs.setBounds(622, 462, 149, 58);
 		contentPane.add(btnAtrs);
 
 	}
