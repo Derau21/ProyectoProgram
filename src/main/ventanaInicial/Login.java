@@ -116,7 +116,7 @@ public class Login extends JFrame {
 			}
 		});
 
-		btnNewButton_1.setBounds(272, 309, 177, 39);
+		btnNewButton_1.setBounds(367, 299, 177, 39);
 		getContentPane().add(btnNewButton_1);
 
 		JButton btnNewButton = new JButton("Crear Cliente");
@@ -128,7 +128,7 @@ public class Login extends JFrame {
 				Login.this.setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(488, 305, 177, 46);
+		btnNewButton.setBounds(456, 369, 212, 46);
 		getContentPane().add(btnNewButton);
 
 		JButton btnCrearAdministrador = new JButton("Crear Administrador");
@@ -140,7 +140,7 @@ public class Login extends JFrame {
 				Login.this.setVisible(false);
 			}
 		});
-		btnCrearAdministrador.setBounds(382, 384, 177, 46);
+		btnCrearAdministrador.setBounds(207, 369, 212, 46);
 		getContentPane().add(btnCrearAdministrador);
 	}
 

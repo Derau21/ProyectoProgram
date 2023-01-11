@@ -36,7 +36,7 @@ public class EliminarPelicula extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 680, 495);
+		setBounds(150, 50, 850, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -64,7 +64,7 @@ public class EliminarPelicula extends JFrame {
 			}
 		});
 		btnAtras.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnAtras.setBounds(518, 392, 118, 39);
+		btnAtras.setBounds(619, 419, 118, 39);
 		contentPane.add(btnAtras);
 		
 		JButton btnEliminar = new JButton("ELIMINAR\r\n");
@@ -84,7 +84,7 @@ public class EliminarPelicula extends JFrame {
 			}
 		});
 		btnEliminar.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnEliminar.setBounds(156, 326, 229, 64);
+		btnEliminar.setBounds(264, 361, 229, 64);
 		contentPane.add(btnEliminar);
 		
 		list = new JList<Pelicula>();

@@ -4,10 +4,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import main.clases.Administrador;
 import main.clases.Cliente;
 import main.clases.Usuario;
 import main.utilidades.Utilidades;
 import main.ventanaInicial.Login;
+import main.ventanasAdministrador.CrearAdministrador;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JPasswordField;
+import java.awt.Font;
 
 public class CrearCliente extends JFrame {
 
@@ -43,14 +46,17 @@ public class CrearCliente extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblPantalla = new JLabel("Crear Cliente");
+		lblPantalla.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblPantalla.setBounds(193, 56, 139, 20);
 		contentPane.add(lblPantalla);
 		
 		JLabel lblUsuario = new JLabel("Usuario");
+		lblUsuario.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblUsuario.setBounds(68, 124, 127, 20);
 		contentPane.add(lblUsuario);
 		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblContrasea.setBounds(68, 192, 127, 20);
 		contentPane.add(lblContrasea);
 		
@@ -60,29 +66,37 @@ public class CrearCliente extends JFrame {
 		contentPane.add(textField);
 		
 		JButton btnConfirmar = new JButton("Confirmar");
+		btnConfirmar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String usuarioIntroducido = textField.getText();
-				String contrasenyaIntroducida = new String (passwordField.getPassword());
+				String contrasenyaIntroducida = passwordField.getText();
 				
-
-				if(!usuarioIntroducido.equals("") && !contrasenyaIntroducida.equals("")){//comprobar que se han rellenado usuario y contrasenya
-					ArrayList<Usuario>usuarios = Utilidades.leerUsuarios(); //para rellenar el array con los usuarios que ya tienes
-					//usuarios.remove(clienteSeleccioando); //se borra el cliente
-
-					usuarios.add(new Cliente(usuarioIntroducido,contrasenyaIntroducida)); //se crea el admin
-
-					Utilidades.escribirFihcero(usuarios);
-
-					//padre.cargarModelo();//como ha habido un cambio cargas el Jlist otra vez para cargarlo de nuevo
-
-					JOptionPane.showMessageDialog(CrearCliente.this, "Cliente creado");
+				
+				
+				if(!usuarioIntroducido.equals("") && !contrasenyaIntroducida.equals("")){//comprobar que se han rellenado usuario y contrase?a
+					ArrayList<Usuario>usuarios = Utilidades.leerUsuarios(); 
+					boolean entradoAIf = false;
 					
-					padre.setVisible(true);
-					CrearCliente.this.setVisible(false); //vueleves a la pesta?a anterior
-					CrearCliente.this.dispose();
-					
+					for (Usuario usuario : usuarios) {
+						if (usuario.getUsername().equals(usuarioIntroducido)) {
+							JOptionPane.showMessageDialog(CrearCliente.this, "Error: el nombre del usuario ya existe en el sistema.");
+							entradoAIf = true;
+						}
+					}
+					if(entradoAIf == false) {
 
+						usuarios.add(new Cliente(usuarioIntroducido,contrasenyaIntroducida)); 
+
+						Utilidades.escribirFihcero(usuarios);
+
+						JOptionPane.showMessageDialog(CrearCliente.this, "Cliente creado");
+
+						padre.setVisible(true);
+						CrearCliente.this.setVisible(false);
+						CrearCliente.this.dispose();
+
+					}
 				}else{
 					JOptionPane.showMessageDialog(CrearCliente.this, "Por favor rellene todos los campos");
 				}
@@ -92,7 +106,7 @@ public class CrearCliente extends JFrame {
 		contentPane.add(btnConfirmar);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(217, 192, 134, 20);
+		passwordField.setBounds(205, 186, 146, 26);
 		contentPane.add(passwordField);
 	}
 }

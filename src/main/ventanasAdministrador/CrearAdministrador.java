@@ -44,7 +44,7 @@ public class CrearAdministrador extends JFrame {
 	public CrearAdministrador(Login padre) {
 		this.padre=padre;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 827, 442);
+		setBounds(150, 50, 850, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -92,23 +92,31 @@ public class CrearAdministrador extends JFrame {
 				String usuarioIntroducido = textField.getText();
 				String contrasenyaIntroducida = passwordField.getText();
 				String dNIIntroducida = textField_1.getText();
-
+				
+				
 				if(!usuarioIntroducido.equals("") && !contrasenyaIntroducida.equals("") && !dNIIntroducida.equals("")){//comprobar que se han rellenado usuario y contrase?a
-					ArrayList<Usuario>usuarios = Utilidades.leerUsuarios(); //para rellenar el array con los usuarios que ya tienes
-					//usuarios.remove(clienteSeleccioando); //se borra el cliente
-
-					usuarios.add(new Administrador(usuarioIntroducido,contrasenyaIntroducida, dNIIntroducida )); //se crea el admin
-
-					Utilidades.escribirFihcero(usuarios);
-
-					//padre.cargarModelo();//como ha habido un cambio cargas el Jlist otra vez para cargarlo de nuevo
-
-					JOptionPane.showMessageDialog(CrearAdministrador.this, "Administrador creado");
+					ArrayList<Usuario>usuarios = Utilidades.leerUsuarios(); 
+					boolean entradoAIf = false;
 					
-					padre.setVisible(true);
-					CrearAdministrador.this.setVisible(false); //vueleves a la pesta?a anterior
-					CrearAdministrador.this.dispose();
-					
+					for (Usuario usuario : usuarios) {
+						if (usuario.getUsername().equals(usuarioIntroducido)) {
+							JOptionPane.showMessageDialog(CrearAdministrador.this, "Error: el nombre del usuario ya existe en el sistema.");
+							entradoAIf = true;
+						}
+					}
+					if(entradoAIf == false) {
+
+						usuarios.add(new Administrador(usuarioIntroducido,contrasenyaIntroducida, dNIIntroducida )); 
+
+						Utilidades.escribirFihcero(usuarios);
+
+						JOptionPane.showMessageDialog(CrearAdministrador.this, "Administrador creado");
+
+						padre.setVisible(true);
+						CrearAdministrador.this.setVisible(false);
+						CrearAdministrador.this.dispose();
+
+					}
 				}else{
 					JOptionPane.showMessageDialog(CrearAdministrador.this, "Por favor rellene todos los campos");
 				}

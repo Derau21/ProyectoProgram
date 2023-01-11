@@ -33,7 +33,7 @@ public class VerReservas extends JFrame {
 		this.cliente = cliente;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 630, 496);
+		setBounds(150, 50, 850, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -50,7 +50,7 @@ public class VerReservas extends JFrame {
 		//table.setBounds(118, 80, 360, 323);
 		
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(118, 80, 404, 323);
+		scrollPane.setBounds(198, 76, 404, 323);
 		contentPane.add(scrollPane);
 		
 		JButton btnAtrs = new JButton("Atr\u00E1s");
@@ -61,7 +61,7 @@ public class VerReservas extends JFrame {
 				VerReservas.this.dispose();
 			}
 		});
-		btnAtrs.setBounds(10, 411, 89, 23);
+		btnAtrs.setBounds(54, 436, 89, 23);
 		contentPane.add(btnAtrs);
 		
 		

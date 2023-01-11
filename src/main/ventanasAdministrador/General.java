@@ -20,7 +20,7 @@ public class General extends JFrame {
 	public General(Usuario usuarioIntroducido) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 516, 518);
+		setBounds(150, 50, 850, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

@@ -45,7 +45,7 @@ public class AnyadirPeliculas extends JFrame {
 		this.padre=padre;
 				
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 464);
+		setBounds(150, 50, 850, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 

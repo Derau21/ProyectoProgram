@@ -20,6 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -32,6 +34,7 @@ public class ModificarHorarios extends JFrame {
 	private JList list;
 	private ArrayList <String> horarios;
 	private DefaultListModel<String> defaulListModel;
+	private JTextField textField_1;
 	
 	
 	public ModificarHorarios(General padre) {
@@ -39,7 +42,7 @@ public class ModificarHorarios extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 780, 586);
+		setBounds(150, 50, 850, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -72,6 +75,21 @@ public class ModificarHorarios extends JFrame {
 		textField.setBounds(168, 382, 172, 31);
 		contentPane.add(textField);
 		textField.setColumns(10);
+		
+		textField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped (KeyEvent e) {
+				if(textField.getText().length() >= 2) {
+			        e.consume();
+			    }
+				
+				char c = e.getKeyChar();
+				if (Character.isLetter(c)) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
 		
 		JButton btnNewButton = new JButton("ELIMINAR\r\n");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -109,8 +127,10 @@ public class ModificarHorarios extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				ArrayList<String> horarios = Utilidades.leerHorarios();
-				String nuevoHorario = textField.getText();
-				horarios.add(nuevoHorario);
+				String Hora = textField.getText();
+				String Minutos = textField_1.getText();
+				
+				horarios.add(Hora + ":" + Minutos);
 				Utilidades.escribirArrayEnFichero(horarios);
 				cargarJlist();
 				
@@ -120,6 +140,35 @@ public class ModificarHorarios extends JFrame {
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnNewButton_2.setBounds(342, 434, 261, 53);
 		contentPane.add(btnNewButton_2);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(378, 382, 172, 31);
+		contentPane.add(textField_1);
+		
+		
+		textField_1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped (KeyEvent e) {
+				if(textField_1.getText().length() >= 2){
+			        e.consume();
+			    }
+				
+				char c = e.getKeyChar();
+				if (Character.isLetter(c)) {
+					getToolkit().beep();
+					e.consume();
+				}
+			}
+		});
+		
+		JLabel lblNewLabel_3 = new JLabel("HORA\r\n");
+		lblNewLabel_3.setBounds(166, 357, 49, 14);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("MINUTOS");
+		lblNewLabel_3_1.setBounds(378, 354, 158, 14);
+		contentPane.add(lblNewLabel_3_1);
 		
 		cargarJlist();
 	}
